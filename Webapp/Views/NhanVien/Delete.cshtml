@@ -1,0 +1,96 @@
+﻿@model Webapp.Models.NhanVien
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>NhanVien</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ma_so)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ma_so)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ho)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ho)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ten)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ten)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.gioi_tinh)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.gioi_tinh)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ngay_sinh)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ngay_sinh)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dan_toc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dan_toc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dia_chi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dia_chi)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cmnd)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cmnd)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.hinh_anh)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.hinh_anh)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ngay_vao_lam)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ngay_vao_lam)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ngay_nghi_lam)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ngay_nghi_lam)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

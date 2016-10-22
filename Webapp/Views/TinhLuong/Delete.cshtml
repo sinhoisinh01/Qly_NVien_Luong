@@ -1,0 +1,61 @@
+﻿@model Webapp.Models.TinhLuong
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>TinhLuong</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nhan_vien_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nhan_vien_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.don_vi_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.don_vi_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.chuc_vu_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.chuc_vu_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.he_so_luong_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.he_so_luong_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ngay_bat_dau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ngay_bat_dau)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ngay_ket_thuc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ngay_ket_thuc)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
