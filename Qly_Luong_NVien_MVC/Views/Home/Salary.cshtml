@@ -1,0 +1,175 @@
+﻿@{
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+<div ng-controller="HomeController">
+    <section id="portfolio">
+        <div class="container">
+            <div class="row center" ng-hide="showNhanVien || showLoading">
+                <form ng-submit="getNhanVien()" role="form">
+                    <h2>Xem lương</h2>
+                    <p class="lead">Vui lòng nhập mã số nhân viên để xem lương</p>
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4">
+                            <div class="alert alert-warning" ng-if="showMessage">
+                                <strong>Mã số vừa nhập không tồn tại!!!</strong>
+                            </div>
+                            <input type="text" class="form-control" ng-model="ma_so" placeholder="Mã nhân viên">
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Xem lương" ng-click="getNhanVien()" />
+                </form>
+            </div>
+
+            <div class="row center" ng-if="!showNhanVien && showLoading">
+                <h3><span class="glyphicon glyphicon-refresh gly-spin"></span> Đang tải...</h3>
+            </div>
+
+            <div class="row" ng-show="showNhanVien">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <center><h2>Thông tin cá nhân</h2></center>
+                    <div class="thumbnail">
+                        <img src="~/Content/my-template/images/my-photos/icon-user-default.png" class="img-thumbnail" width="150" height="150" />
+                        <div class="caption">
+                            <p>
+                                Mã số: {{nhan_vien.ma_so}}
+                            </p>
+                            <p>
+                                Họ và tên: {{nhan_vien.ho + ' ' + nhan_vien.ten}}
+                            </p>
+                            <p>
+                                Giới tính: {{nhan_vien.gioi_tinh ? 'Nữ' : 'Nam'}}
+                            </p>
+                            <p>
+                                Ngày sinh: {{nhan_vien.ngay_sinh | date:'dd/MM/y'}}
+                            </p>
+                            <p>
+                                Dân tộc: {{nhan_vien.dan_toc}}
+                            </p>
+                            <center>
+                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modalLichSuCongTac">
+                                    Lịch sử công tác
+                                </button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+            <div class="row center" ng-show="showNhanVien">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    Thời điểm tính lương (dd/mm/yyyy):
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{dateFormat}}" ng-model="dt"
+                               is-open="popup1.opened" datepicker-options="dateOptions"
+                               ng-required="true" close-text="Close"
+                               placeholder="dd/mm/yyyy" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-click="tinhLuong()">Xem lương</button>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+            <div class="row" ng-show="showNhanVien">
+                <div class="col-lg-12">
+                    <div class="well well-sm">
+                        <center>
+                            <h4>
+                                <strong>Lương: </strong>{{luong | number:0}} VNĐ ;
+                                <strong>Lương thực lãnh: </strong> {{luong_thuc_lanh | number:0}} VNĐ
+                            </h4>
+                        </center>
+                    </div>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-lg-2">Giai đoạn</th>
+                                <th class="col-lg-2">Phòng ban</th>
+                                <th class="col-lg-2">Chức vụ</th>
+                                <th class="col-lg-2">Ngạch</th>
+                                <th class="col-lg-1">Phụ cấp</th>
+                                <th class="col-lg-1">Số ngày</th>
+                                <th class="col-lg-2">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat-start="s in timeTable" ng-hide="s.hideRow">
+                                <td class="col-lg-2" rowspan="2">
+                                    Từ {{s.ngay_bat_dau | date: 'dd/MM/y'}}  {{s.ngay_ket_thuc == null ? 'đến nay' : ' - ' + (s.ngay_ket_thuc | date: 'dd/MM/y')}}
+                                </td>
+                                <td class="col-lg-2" rowspan="2">{{s.don_vi.ten_goi}}</td>
+                                <td class="col-lg-2">{{s.chuc_vu.ten_chuc_vu}}</td>
+                                <td class="col-lg-2">{{s.he_so_luong.ngach.ten_ngach}} bậc {{s.he_so_luong.bac_luong}}</td>
+                                <td class="col-lg-1" rowspan="2">{{s.he_so_luong.vuot_khung == null ? 'Không' : s.he_so_luong.vuot_khung}}</td>
+                                <td class="col-lg-1" rowspan="2">{{s.so_ngay}}</td>
+                                <td class="col-lg-2" rowspan="2">{{s.thanh_tien * s.so_ngay | number:0}} VNĐ</td>
+                            </tr>
+                            <tr ng-repeat-end>
+                                <td class="col-lg-2">Hệ số: {{s.chuc_vu.he_so_chuc_vu}}</td>
+                                <td class="col-lg-2">Hệ số lương: {{s.he_so_luong.he_so}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalLichSuCongTac" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Lịch sử công tác</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="fromDate">Từ ngày:</label>
+                            <input type="date" class="form-control" id="fromDate" ng-model="fromDate" placeholder="dd/mm/yyyy">
+                        </div>
+                        <div class="form-group">
+                            <label for="toDate">Đến ngày:</label>
+                            <input type="date" class="form-control" id="toDate" ng-model="toDate" placeholder="dd/mm/yyyy">
+                        </div>
+                    </form>
+                    </br>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-lg-3">Giai đoạn</th>
+                                <th class="col-lg-3">Phòng ban</th>
+                                <th class="col-lg-3">Chức vụ</th>
+                                <th class="col-lg-2">Ngạch</th>
+                                <th class="col-lg-1">Phụ cấp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--tr ng-repeat-start="s in salaryTable | myfilter:fromDate:toDate"-->
+                            <tr ng-repeat-start="s in salaryTable">
+                                <td class="col-lg-3" rowspan="2">
+                                    Từ {{s.ngay_bat_dau | date: 'dd/MM/y'}}  {{s.ngay_ket_thuc == null ? 'đến nay' : ' - ' + (s.ngay_ket_thuc | date: 'dd/MM/y')}}
+                                </td>
+                                <td class="col-lg-3" rowspan="2">{{s.don_vi.ten_goi}}</td>
+                                <td class="col-lg-2">{{s.chuc_vu.ten_chuc_vu}}</td>
+                                <td class="col-lg-2">{{s.he_so_luong.ngach.ten_ngach}} bậc {{s.he_so_luong.bac_luong}}</td>
+                                <td class="col-lg-1" rowspan="2">{{s.he_so_luong.vuot_khung == null ? 'Không' : s.he_so_luong.vuot_khung}}</td>
+                            </tr>
+                            <tr ng-repeat-end>
+                                <td class="col-lg-2">Hệ số: {{s.chuc_vu.he_so_chuc_vu}}</td>
+                                <td class="col-lg-2">Hệ số lương: {{s.he_so_luong.he_so}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

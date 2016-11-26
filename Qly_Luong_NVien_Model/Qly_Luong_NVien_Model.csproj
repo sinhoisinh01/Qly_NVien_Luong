@@ -50,10 +50,23 @@
   <ItemGroup>
     <Compile Include="ChucVu.cs" />
     <Compile Include="DonVi.cs" />
+    <Compile Include="HangSo.cs" />
     <Compile Include="HeSoLuong.cs" />
     <Compile Include="Migrations\201610220210527_InitMigration.cs" />
     <Compile Include="Migrations\201610220210527_InitMigration.Designer.cs">
       <DependentUpon>201610220210527_InitMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611220533435_AddHangSoTable.cs" />
+    <Compile Include="Migrations\201611220533435_AddHangSoTable.Designer.cs">
+      <DependentUpon>201611220533435_AddHangSoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611220550463_EditTableHangSo.cs" />
+    <Compile Include="Migrations\201611220550463_EditTableHangSo.Designer.cs">
+      <DependentUpon>201611220550463_EditTableHangSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611230021100_AddNewSeed.cs" />
+    <Compile Include="Migrations\201611230021100_AddNewSeed.Designer.cs">
+      <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ngach.cs" />
@@ -69,6 +82,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610220210527_InitMigration.resx">
       <DependentUpon>201610220210527_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611220533435_AddHangSoTable.resx">
+      <DependentUpon>201611220533435_AddHangSoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611220550463_EditTableHangSo.resx">
+      <DependentUpon>201611220550463_EditTableHangSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611230021100_AddNewSeed.resx">
+      <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

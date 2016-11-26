@@ -26,6 +26,26 @@
                 mo_ta = "Khoa chuyên dạy về Công nghệ thông tin"
             };
             context.don_vi.AddOrUpdate(dvi);
+            dvi = new DonVi()
+            {
+                id = 2,
+                ten_goi = "Trung tâm tin học",
+                dia_chi = "273 An Dương Vương",
+                dien_thoai = "19001516",
+                ngay_thanh_lap = new DateTime(2010, 10, 12),
+                mo_ta = "Trung tâm tin học Đại học Sài Gòn"
+            };
+            context.don_vi.AddOrUpdate(dvi);
+            dvi = new DonVi()
+            {
+                id = 3,
+                ten_goi = "Trung tâm ngoại ngữ",
+                dia_chi = "273 An Dương Vương",
+                dien_thoai = "19001516",
+                ngay_thanh_lap = new DateTime(2005, 10, 12),
+                mo_ta = "Trung tâm ngoại ngữ Đại học Sài Gòn"
+            };
+            context.don_vi.AddOrUpdate(dvi);
             /* Hết DonVi Table */
 
             // Add Rows for NhanVien Table
@@ -145,29 +165,65 @@
             chucVu = new ChucVu()
             {
                 id = 3,
-                ten_chuc_vu = "Trưởng phòng / Trưởng Khoa / Giám đốc trung tâm",
+                ten_chuc_vu = "Trưởng phòng",
                 he_so_chuc_vu = 0.5f
             };
             context.chuc_vu.AddOrUpdate(chucVu);
             chucVu = new ChucVu()
             {
                 id = 4,
-                ten_chuc_vu = "Phó phòng / Phó Khoa / Phó Giám đốc trung tâm",
-                he_so_chuc_vu = 0.4f
+                ten_chuc_vu = "Trưởng Khoa",
+                he_so_chuc_vu = 0.5f
             };
             context.chuc_vu.AddOrUpdate(chucVu);
             chucVu = new ChucVu()
             {
                 id = 5,
+                ten_chuc_vu = "Giám đốc trung tâm",
+                he_so_chuc_vu = 0.5f
+            };
+            context.chuc_vu.AddOrUpdate(chucVu);
+            chucVu = new ChucVu()
+            {
+                id = 6,
+                ten_chuc_vu = "Phó phòng",
+                he_so_chuc_vu = 0.4f
+            };
+            context.chuc_vu.AddOrUpdate(chucVu);
+            chucVu = new ChucVu()
+            {
+                id = 7,
+                ten_chuc_vu = "Phó Khoa",
+                he_so_chuc_vu = 0.4f
+            };
+            context.chuc_vu.AddOrUpdate(chucVu);
+            chucVu = new ChucVu()
+            {
+                id = 8,
+                ten_chuc_vu = "Phó Giám đốc trung tâm",
+                he_so_chuc_vu = 0.4f
+            };
+            context.chuc_vu.AddOrUpdate(chucVu);
+            chucVu = new ChucVu()
+            {
+                id = 9,
                 ten_chuc_vu = "Trưởng bộ môn trực thuộc Khoa",
                 he_so_chuc_vu = 0.4f
             };
             context.chuc_vu.AddOrUpdate(chucVu);
             chucVu = new ChucVu()
             {
-                id = 6,
+                id = 10,
                 ten_chuc_vu = "Phó bộ môn trực thuộc Khoa",
                 he_so_chuc_vu = 0.3f
+            };
+            context.chuc_vu.AddOrUpdate(chucVu);
+            context.chuc_vu.AddOrUpdate(chucVu);
+            chucVu = new ChucVu()
+            {
+                id = 11,
+                ten_chuc_vu = "Không có",
+                he_so_chuc_vu = 0
             };
             context.chuc_vu.AddOrUpdate(chucVu);
 
@@ -698,18 +754,100 @@
             /*------Hết phần dữ liệu Nhân Viên Bảo Vệ */
 
             /* Phần dữ liệu tính lương */
+            // Khoa CNTT - Chức vụ: Không - Ngạch: NV Kĩ thuật bậc 7 - Hệ số lương: 2.37 VK 1.16
             TinhLuong tinhLuong = new TinhLuong()
             {
                 id = 1,
                 nhan_vien = context.nhan_vien.Find(1),
                 don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(6),
-                he_so_luong = context.he_so_luong.Find(51),
-                ngay_bat_dau = new DateTime(2013, 9, 5),
+                chuc_vu = context.chuc_vu.Find(21),
+                he_so_luong = context.he_so_luong.Find(47),
+                ngay_bat_dau = new DateTime(2013, 4, 1),
+                ngay_ket_thuc = new DateTime(2015, 9, 2)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+            
+            // Khoa CNTT - Chức vụ: Không - Ngạch: NV Kĩ thuật bậc 8 - Hệ số lương: 2.37 VK 1.27
+            tinhLuong = new TinhLuong()
+            {
+                id = 2,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(21),
+                he_so_luong = context.he_so_luong.Find(48),
+                ngay_bat_dau = new DateTime(2015, 9, 3),
+                ngay_ket_thuc = new DateTime(2016, 2, 1)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+            
+            // Khoa CNTT - Chức vụ: Không - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
+            tinhLuong = new TinhLuong()
+            {
+                id = 3,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(21),
+                he_so_luong = context.he_so_luong.Find(25),
+                ngay_bat_dau = new DateTime(2016, 2, 2),
+                ngay_ket_thuc = new DateTime(2016, 4, 1)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+
+            // Khoa CNTT - Chức vụ: Phó bộ môn trực thuộc khoa - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
+            tinhLuong = new TinhLuong()
+            {
+                id = 4,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(20),
+                he_so_luong = context.he_so_luong.Find(25),
+                ngay_bat_dau = new DateTime(2016, 4, 2),
                 ngay_ket_thuc = null
 
             };
             context.tinh_luong.AddOrUpdate(tinhLuong);
+
+            // TTTH - Chức vụ: Không - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
+            tinhLuong = new TinhLuong()
+            {
+                id = 5,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(6),
+                chuc_vu = context.chuc_vu.Find(21),
+                he_so_luong = context.he_so_luong.Find(25),
+                ngay_bat_dau = new DateTime(2016, 5, 1),
+                ngay_ket_thuc = new DateTime(2016, 6, 1)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+
+            // TTTH - Chức vụ: Phó giám đốc trung tâm - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
+            tinhLuong = new TinhLuong()
+            {
+                id = 6,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(6),
+                chuc_vu = context.chuc_vu.Find(18),
+                he_so_luong = context.he_so_luong.Find(25),
+                ngay_bat_dau = new DateTime(2016, 6, 2),
+                ngay_ket_thuc = null
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+            /* Hết phần dữ liệu tính lương */
+
+            /* Phần dữ liệu lương cơ bản */
+            HangSo hang_so = new HangSo()
+            {
+                id = 1,
+                ten_hang_so = "LUONG_CO_BAN",
+                gia_tri = "720000"
+
+            };
+            context.hang_so.AddOrUpdate(hang_so);
             /* Hết phần dữ liệu tính lương */
 
             base.Seed(context);

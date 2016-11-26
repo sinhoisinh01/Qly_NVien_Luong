@@ -10,15 +10,15 @@ namespace Qly_Luong_NVien_MVC.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            ViewBag.Title = "SGU - Trang chủ";
+            ViewBag.PageType = "index";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Salary()
         {
-            ViewBag.Message = "Your app description page.";
-
+            ViewBag.Title = "SGU - Xem lương";
+            ViewBag.PageType = "xem_luong";
             return View();
         }
 
