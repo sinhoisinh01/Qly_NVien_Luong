@@ -60,8 +60,15 @@
             this.dteTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.dteDenNgay = new System.Windows.Forms.DateTimePicker();
-            this.tblLuong = new System.Windows.Forms.DataGridView();
             this.btnLoc = new System.Windows.Forms.Button();
+            this.tblLuong = new System.Windows.Forms.DataGridView();
+            this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -470,18 +477,6 @@
             this.dteDenNgay.Size = new System.Drawing.Size(150, 20);
             this.dteDenNgay.TabIndex = 3;
             // 
-            // tblLuong
-            // 
-            this.tblLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tblLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblLuong.Location = new System.Drawing.Point(0, 30);
-            this.tblLuong.Margin = new System.Windows.Forms.Padding(0);
-            this.tblLuong.Name = "tblLuong";
-            this.tblLuong.Size = new System.Drawing.Size(502, 411);
-            this.tblLuong.TabIndex = 1;
-            // 
             // btnLoc
             // 
             this.btnLoc.Location = new System.Drawing.Point(388, 3);
@@ -491,6 +486,91 @@
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = true;
             // 
+            // tblLuong
+            // 
+            this.tblLuong.AllowUserToAddRows = false;
+            this.tblLuong.AllowUserToDeleteRows = false;
+            this.tblLuong.AllowUserToOrderColumns = true;
+            this.tblLuong.AllowUserToResizeRows = false;
+            this.tblLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tblLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.tblLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmId,
+            this.clmNgayBatDau,
+            this.clmNgayKetThuc,
+            this.clmChucVu,
+            this.clmHeSoLuong,
+            this.clmDonVi,
+            this.clmNhanVien});
+            this.tblLuong.Location = new System.Drawing.Point(0, 30);
+            this.tblLuong.Margin = new System.Windows.Forms.Padding(0);
+            this.tblLuong.MultiSelect = false;
+            this.tblLuong.Name = "tblLuong";
+            this.tblLuong.ReadOnly = true;
+            this.tblLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblLuong.Size = new System.Drawing.Size(502, 411);
+            this.tblLuong.TabIndex = 1;
+            this.tblLuong.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLuong_CellFormatting);
+            // 
+            // clmId
+            // 
+            this.clmId.DataPropertyName = "id";
+            this.clmId.HeaderText = "ID";
+            this.clmId.Name = "clmId";
+            this.clmId.ReadOnly = true;
+            this.clmId.Width = 43;
+            // 
+            // clmNgayBatDau
+            // 
+            this.clmNgayBatDau.DataPropertyName = "ngay_bat_dau";
+            this.clmNgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.clmNgayBatDau.Name = "clmNgayBatDau";
+            this.clmNgayBatDau.ReadOnly = true;
+            this.clmNgayBatDau.Width = 97;
+            // 
+            // clmNgayKetThuc
+            // 
+            this.clmNgayKetThuc.DataPropertyName = "ngay_ket_thuc";
+            this.clmNgayKetThuc.HeaderText = "Ngày kết thúc";
+            this.clmNgayKetThuc.Name = "clmNgayKetThuc";
+            this.clmNgayKetThuc.ReadOnly = true;
+            this.clmNgayKetThuc.Width = 99;
+            // 
+            // clmChucVu
+            // 
+            this.clmChucVu.DataPropertyName = "chuc_vu";
+            this.clmChucVu.HeaderText = "Chức vụ";
+            this.clmChucVu.Name = "clmChucVu";
+            this.clmChucVu.ReadOnly = true;
+            this.clmChucVu.Width = 72;
+            // 
+            // clmHeSoLuong
+            // 
+            this.clmHeSoLuong.DataPropertyName = "he_so_luong";
+            this.clmHeSoLuong.HeaderText = "Hệ số lương";
+            this.clmHeSoLuong.Name = "clmHeSoLuong";
+            this.clmHeSoLuong.ReadOnly = true;
+            this.clmHeSoLuong.Width = 89;
+            // 
+            // clmDonVi
+            // 
+            this.clmDonVi.DataPropertyName = "don_vi";
+            this.clmDonVi.HeaderText = "Đơn vị";
+            this.clmDonVi.Name = "clmDonVi";
+            this.clmDonVi.ReadOnly = true;
+            this.clmDonVi.Width = 63;
+            // 
+            // clmNhanVien
+            // 
+            this.clmNhanVien.DataPropertyName = "nhan_vien";
+            this.clmNhanVien.HeaderText = "Nhân viên";
+            this.clmNhanVien.Name = "clmNhanVien";
+            this.clmNhanVien.ReadOnly = true;
+            this.clmNhanVien.Visible = false;
+            this.clmNhanVien.Width = 81;
+            // 
             // Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,6 +579,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 462);
             this.Controls.Add(this.splitContainer1);
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Detail";
             this.Text = "Xem";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -554,5 +636,12 @@
         protected System.Windows.Forms.DateTimePicker dteDenNgay;
         protected System.Windows.Forms.DataGridView tblLuong;
         private System.Windows.Forms.Button btnLoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNgayBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNgayKetThuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmHeSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDonVi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNhanVien;
     }
 }

@@ -59,6 +59,7 @@ namespace Qly_Luong_NVien_Service
         public void add(ENTITY entity)
         {
             dbSet.Add(entity);
+            dbContext.SaveChanges();
         }
 
         public void remove(ENTITY entity)
