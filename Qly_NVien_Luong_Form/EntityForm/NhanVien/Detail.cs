@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_NVien_Luong_Form.FormHandler.TinhLuong;
+using Qly_Luong_NVien_Service;
+using Qly_Luong_NVien_Model;
+using Qly_NVien_Luong_Form.Utils;
 
 namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
 {
@@ -15,6 +18,8 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
     {
         private Qly_Luong_NVien_Model.NhanVien nhanVien = null;
         private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new Qly_Luong_NVien_Model.NhanVienLuongDBContext();
+        private NhanVienService nhanVienService = new NhanVienService();
+        private TinhLuongService tinhLuongService = new TinhLuongService();
 
         public Detail(object id)
         {
@@ -28,11 +33,15 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
         private void loadData(object id)
         {
             //Tải thông tin nhân viên
-            this.nhanVien = dbContext.nhan_vien.Find(id);
+            this.nhanVien = nhanVienService.find((int)id);
             if (nhanVien == null)
                 throw new KeyNotFoundException();
 
             //Tải bảng công tác của nhân viên đó
+            ISet<Qly_Luong_NVien_Model.TinhLuong> congTac = tinhLuongService.findByNhanVien(this.nhanVien);
+            var bindingList = new BindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac.ToArray());
+            var source = new BindingSource(bindingList, null);
+            this.tblLuong.DataSource = source;
         }
 
         /*Đưa dữ liệu lấy từ database vào form*/
@@ -65,6 +74,29 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             //Dòng dưới chỉ set tạm thời
             Qly_NVien_Luong_Form.FormOnly.TinhLuong.Criteria criteria = new Edit(0);
             criteria.ShowDialog();
+        }
+
+        //Format cell
+        private void propCellFormating(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((tblLuong.Rows[e.RowIndex].DataBoundItem != null) &&
+                (tblLuong.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
+            {
+                e.Value = PropertyUtils.bindProperty(
+                              tblLuong.Rows[e.RowIndex].DataBoundItem,
+                              tblLuong.Columns[e.ColumnIndex].DataPropertyName
+                            );
+            }
+        }
+
+        private void tblLuong_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value is DonVi)
+                e.Value = (e.Value as DonVi).ten_goi;
+            else if (e.Value is ChucVu)
+                e.Value = (e.Value as ChucVu).ten_chuc_vu;            
+            else if(e.Value is HeSoLuong)
+                e.Value = (e.Value as HeSoLuong).he_so + " / " + (e.Value as HeSoLuong).ngach.ten_ngach;
         }
     }
 }

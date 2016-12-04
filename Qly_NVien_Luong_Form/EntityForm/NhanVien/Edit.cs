@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Qly_NVien_Luong_Form.FormOnly.NhanVien;
 using System.Data.Entity;
+using Qly_Luong_NVien_Service;
 
 namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
 {
-    class Edit : Criteria
+    public partial class Edit : Criteria
     {
+        private NhanVienService nhanVienService = new NhanVienService();
+
         public Edit(object id):base()
         {
             //Query dữ liệu lên            
@@ -49,8 +52,7 @@ namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
             /*Cập nhập database*/
             if(base.nhanVien != null)
             {
-                base.dbContext.Entry(base.nhanVien).State = EntityState.Modified;
-                base.dbContext.SaveChanges();
+                nhanVienService.update(base.nhanVien);
                 base.Close(); //Đóng form
             }
         }

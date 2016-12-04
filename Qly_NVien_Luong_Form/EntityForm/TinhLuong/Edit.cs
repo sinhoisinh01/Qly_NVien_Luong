@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Qly_NVien_Luong_Form.FormOnly;
+using Qly_Luong_NVien_Service;
 
 namespace Qly_NVien_Luong_Form.FormHandler.TinhLuong
 {
-    class Edit : FormOnly.TinhLuong.Criteria
+    public partial class Edit : FormOnly.TinhLuong.Criteria
     {
+        private TinhLuongService tinhLuongService = new TinhLuongService();
+
         public Edit(object id):base()
         {
             //Query dữ liệu lên
-            //...
+            base.tinhLuong = tinhLuongService.find((int) id);
 
             //Đưa dữ liệu query vào form
             setDataToForm();
