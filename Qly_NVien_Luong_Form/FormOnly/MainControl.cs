@@ -83,15 +83,5 @@ namespace Qly_NVien_Luong_Form.FormOnly
                 }
             }
         }
-
-        /*Tìm kiếm dữ liệu*/
-        private void searchData(object sender, EventArgs e)
-        {
-            var keyword = this.texSearchField.Text;
-            if (!String.IsNullOrEmpty(keyword))
-            {
-                keyword = keyword.Trim();
-            }
-        }
     }
 }

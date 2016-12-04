@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_Luong_NVien_MVC", "Qly_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_Luong_NVien_Model", "Qly_Luong_NVien_Model\Qly_Luong_NVien_Model.csproj", "{9D60F93B-A621-47C4-B874-EFF76F41D021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_NVien_Luong_Form", "Qly_NVien_Luong_Form\Qly_NVien_Luong_Form.csproj", "{EF343683-9550-4100-85B5-D37400E08286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLy_Luong_NVien_Form", "Qly_NVien_Luong_Form\QLy_Luong_NVien_Form.csproj", "{EF343683-9550-4100-85B5-D37400E08286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_Luong_NVien_Service", "Qly_Luong_NVien_Service\Qly_Luong_NVien_Service.csproj", "{AF7F83E3-BF45-4536-A749-8361F11BC82D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EF343683-9550-4100-85B5-D37400E08286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF343683-9550-4100-85B5-D37400E08286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF343683-9550-4100-85B5-D37400E08286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
