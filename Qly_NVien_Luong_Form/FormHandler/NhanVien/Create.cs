@@ -22,7 +22,7 @@ namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
         }
 
         /*Nhấn nút submit*/
-        public override void onSubmit(object sender, EventArgs e)
+        private void onSubmit(object sender, EventArgs e)
         {
             base.onSubmit(sender, e); //Sau khi binding dữ liệu
 
