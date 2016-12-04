@@ -143,6 +143,10 @@
       <Project>{9d60f93b-a621-47c4-b874-eff76f41d021}</Project>
       <Name>Qly_Luong_NVien_Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Qly_Luong_NVien_Service\Qly_Luong_NVien_Service.csproj">
+      <Project>{af7f83e3-bf45-4536-a749-8361f11bc82d}</Project>
+      <Name>Qly_Luong_NVien_Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
