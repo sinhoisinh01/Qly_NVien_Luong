@@ -106,5 +106,17 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             //Tắt hiển thị
             btnMacDinh.Visible = false;
         }
+
+        //Xem chi tiết tính lương
+        private void viewDetail(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedRow = tblLuong.Rows[e.RowIndex];
+                var id = selectedRow.Cells[0].Value;
+                Qly_NVien_Luong_Form.FormOnly.TinhLuong.Detail detail = new Qly_NVien_Luong_Form.FormOnly.TinhLuong.Detail(id);
+                detail.ShowDialog();
+            }
+        }
     }
 }
