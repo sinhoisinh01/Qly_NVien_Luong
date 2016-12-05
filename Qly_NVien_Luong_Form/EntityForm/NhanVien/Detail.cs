@@ -10,14 +10,12 @@ using System.Windows.Forms;
 using Qly_NVien_Luong_Form.FormHandler.TinhLuong;
 using Qly_Luong_NVien_Service;
 using Qly_Luong_NVien_Model;
-using Qly_NVien_Luong_Form.Utils;
 
 namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
 {
     public partial class Detail : Form
     {
         private Qly_Luong_NVien_Model.NhanVien nhanVien = null;
-        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new Qly_Luong_NVien_Model.NhanVienLuongDBContext();
         private NhanVienService nhanVienService = new NhanVienService();
         private TinhLuongService tinhLuongService = new TinhLuongService();
 
@@ -75,20 +73,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             Qly_NVien_Luong_Form.FormOnly.TinhLuong.Criteria criteria = new Edit(0);
             criteria.ShowDialog();
         }
-
-        //Format cell
-        private void propCellFormating(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if ((tblLuong.Rows[e.RowIndex].DataBoundItem != null) &&
-                (tblLuong.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
-            {
-                e.Value = PropertyUtils.bindProperty(
-                              tblLuong.Rows[e.RowIndex].DataBoundItem,
-                              tblLuong.Columns[e.ColumnIndex].DataPropertyName
-                            );
-            }
-        }
-
+        
         private void tblLuong_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.Value is DonVi)
@@ -97,6 +82,29 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
                 e.Value = (e.Value as ChucVu).ten_chuc_vu;            
             else if(e.Value is HeSoLuong)
                 e.Value = (e.Value as HeSoLuong).he_so + " / " + (e.Value as HeSoLuong).ngach.ten_ngach;
+        }
+
+        //Nhấn nút lọc trên giao diện
+        private void onFilterSubmited(object sender, EventArgs e)
+        {
+            var fromDate = dteTuNgay.Value;
+            var toDate = dteDenNgay.Value;
+
+            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = tinhLuongService.findByDateRange(this.nhanVien, fromDate, toDate).ToList();
+            tblLuong.DataSource = tinhLuongs;
+
+            //Hiển thị nút reset
+            btnMacDinh.Visible = true;
+        }
+
+        //Nút mặc định được nhấn
+        private void btnMacDinhSubmited(object sender, EventArgs e)
+        {
+            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = tinhLuongService.findByNhanVien(this.nhanVien).ToList();
+            tblLuong.DataSource = tinhLuongs;
+
+            //Tắt hiển thị
+            btnMacDinh.Visible = false;
         }
     }
 }

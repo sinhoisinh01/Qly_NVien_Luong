@@ -38,7 +38,7 @@ namespace Qly_NVien_Luong_Form.FormHandler.TinhLuong
             {
                 tinhLuongService.add(base.tinhLuong);
                 clearForm();
-                System.Windows.Forms.MessageBox.Show("Chuyển công tác thành công!");
+                System.Windows.Forms.MessageBox.Show("Thêm công tác thành công!");
             }
         }
     }
