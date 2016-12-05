@@ -26,7 +26,7 @@ namespace Qly_Luong_NVien_Service
         }
 
         //Tìm theo nhân viên và khoảng thời gian
-        private ISet<TinhLuong> findByDateRange(NhanVien nhanVien, DateTime from, DateTime to)
+        public ISet<TinhLuong> findByDateRange(NhanVien nhanVien, DateTime from, DateTime to)
         {
             ISet<TinhLuong> ketQua = new HashSet<TinhLuong>();
             IList<TinhLuong> duLieu = new List<TinhLuong>(base.findAll().ToArray());

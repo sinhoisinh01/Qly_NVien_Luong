@@ -160,33 +160,34 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
             // 
             // cbxDonVi
             // 
+            this.cbxDonVi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDonVi.FormattingEnabled = true;
             this.cbxDonVi.Location = new System.Drawing.Point(90, 65);
             this.cbxDonVi.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.cbxDonVi.Name = "cbxDonVi";
             this.cbxDonVi.Size = new System.Drawing.Size(200, 21);
             this.cbxDonVi.TabIndex = 7;
-            this.cbxDonVi.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // cbxChucVu
             // 
+            this.cbxChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxChucVu.FormattingEnabled = true;
             this.cbxChucVu.Location = new System.Drawing.Point(90, 95);
             this.cbxChucVu.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.cbxChucVu.Name = "cbxChucVu";
             this.cbxChucVu.Size = new System.Drawing.Size(200, 21);
             this.cbxChucVu.TabIndex = 8;
-            this.cbxChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // cbxHeSoLuong
             // 
+            this.cbxHeSoLuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHeSoLuong.FormattingEnabled = true;
             this.cbxHeSoLuong.Location = new System.Drawing.Point(90, 125);
             this.cbxHeSoLuong.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.cbxHeSoLuong.Name = "cbxHeSoLuong";
             this.cbxHeSoLuong.Size = new System.Drawing.Size(200, 21);
             this.cbxHeSoLuong.TabIndex = 9;
-            this.cbxHeSoLuong.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cbxHeSoLuong.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbxHeSoLuong_Format);
             // 
             // button1
             // 

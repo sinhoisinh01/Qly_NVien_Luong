@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
+using Qly_Luong_NVien_Service;
 
 namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
 {
@@ -15,7 +16,10 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
     {
         protected Qly_Luong_NVien_Model.TinhLuong tinhLuong = null;
         protected Qly_Luong_NVien_Model.NhanVien nhanVien = null;
-        protected NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
+
+        protected ChucVuService chucVuService = new ChucVuService();
+        protected HeSoLuongService heSoLuongService = new HeSoLuongService();
+        protected DonViService donViService = new DonViService();
 
         public Criteria(Qly_Luong_NVien_Model.NhanVien nhanVien)
         {
@@ -26,8 +30,26 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
         protected Criteria()
         {
             InitializeComponent();
+            loadData();
         }
 
+        /*Tải dữ liệu*/
+        private void loadData()
+        {
+            IList<ChucVu> chucVus = chucVuService.findAll().ToList();
+            cbxChucVu.DataSource = chucVus;
+            cbxChucVu.ValueMember = "id";
+            cbxChucVu.DisplayMember = "ten_chuc_vu";
+
+            IList<HeSoLuong> heSoLuongs = heSoLuongService.findAll().ToList();
+            cbxHeSoLuong.DataSource = heSoLuongs;
+            cbxHeSoLuong.ValueMember = "id";
+            cbxHeSoLuong.DisplayMember = "he_so";
+
+            IList<DonVi> donVis = donViService.findAll().ToList();
+            cbxDonVi.DataSource = donVis;
+            cbxDonVi.ValueMember = "id";
+        }
 
         //Binding dữ liệu vào đối tượng
         private void bindingData()
@@ -61,6 +83,13 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
             /*Validate dữ liệu*/
             validateData();
         }
-        
+
+        //Cách hiển thị
+        private void cbxHeSoLuong_Format(object sender, ListControlConvertEventArgs e)
+        {
+            var heSo = ((HeSoLuong)e.ListItem).he_so;
+            var ngach = ((HeSoLuong)e.ListItem).ngach.ten_ngach;
+            e.Value = heSo + " / " + ngach;
+        }
     }
 }

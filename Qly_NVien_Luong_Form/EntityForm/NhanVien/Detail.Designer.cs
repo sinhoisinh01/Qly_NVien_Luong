@@ -69,6 +69,7 @@
             this.clmHeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnMacDinh = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -82,11 +83,12 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.46154F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.53846F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
@@ -121,7 +123,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(251, 300);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(299, 300);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label1
@@ -148,25 +150,27 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.32258F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.67742F));
             this.tableLayoutPanel2.Controls.Add(this.lblHo, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblTen, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(71, 33);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(80, 30);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(180, 24);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(219, 30);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // lblHo
             // 
             this.lblHo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHo.AutoSize = true;
-            this.lblHo.Location = new System.Drawing.Point(4, 5);
+            this.lblHo.Location = new System.Drawing.Point(4, 8);
             this.lblHo.Margin = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.lblHo.Name = "lblHo";
             this.lblHo.Size = new System.Drawing.Size(41, 13);
@@ -177,7 +181,7 @@
             // 
             this.lblTen.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTen.AutoSize = true;
-            this.lblTen.Location = new System.Drawing.Point(72, 5);
+            this.lblTen.Location = new System.Drawing.Point(88, 8);
             this.lblTen.Margin = new System.Windows.Forms.Padding(0);
             this.lblTen.Name = "lblTen";
             this.lblTen.Size = new System.Drawing.Size(41, 13);
@@ -276,7 +280,7 @@
             // 
             this.lblMaSo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMaSo.AutoSize = true;
-            this.lblMaSo.Location = new System.Drawing.Point(74, 8);
+            this.lblMaSo.Location = new System.Drawing.Point(83, 8);
             this.lblMaSo.Name = "lblMaSo";
             this.lblMaSo.Size = new System.Drawing.Size(41, 13);
             this.lblMaSo.TabIndex = 19;
@@ -286,7 +290,7 @@
             // 
             this.lblGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Location = new System.Drawing.Point(74, 68);
+            this.lblGioiTinh.Location = new System.Drawing.Point(83, 68);
             this.lblGioiTinh.Name = "lblGioiTinh";
             this.lblGioiTinh.Size = new System.Drawing.Size(41, 13);
             this.lblGioiTinh.TabIndex = 20;
@@ -296,7 +300,7 @@
             // 
             this.lblNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNgaySinh.AutoSize = true;
-            this.lblNgaySinh.Location = new System.Drawing.Point(74, 98);
+            this.lblNgaySinh.Location = new System.Drawing.Point(83, 98);
             this.lblNgaySinh.Name = "lblNgaySinh";
             this.lblNgaySinh.Size = new System.Drawing.Size(41, 13);
             this.lblNgaySinh.TabIndex = 21;
@@ -306,7 +310,7 @@
             // 
             this.lblDanToc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDanToc.AutoSize = true;
-            this.lblDanToc.Location = new System.Drawing.Point(74, 128);
+            this.lblDanToc.Location = new System.Drawing.Point(83, 128);
             this.lblDanToc.Name = "lblDanToc";
             this.lblDanToc.Size = new System.Drawing.Size(41, 13);
             this.lblDanToc.TabIndex = 22;
@@ -316,7 +320,7 @@
             // 
             this.lblDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(74, 158);
+            this.lblDiaChi.Location = new System.Drawing.Point(83, 158);
             this.lblDiaChi.Name = "lblDiaChi";
             this.lblDiaChi.Size = new System.Drawing.Size(41, 13);
             this.lblDiaChi.TabIndex = 23;
@@ -326,7 +330,7 @@
             // 
             this.lblCMND.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCMND.AutoSize = true;
-            this.lblCMND.Location = new System.Drawing.Point(74, 188);
+            this.lblCMND.Location = new System.Drawing.Point(83, 188);
             this.lblCMND.Name = "lblCMND";
             this.lblCMND.Size = new System.Drawing.Size(41, 13);
             this.lblCMND.TabIndex = 24;
@@ -336,7 +340,7 @@
             // 
             this.lblHinhAnh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHinhAnh.AutoSize = true;
-            this.lblHinhAnh.Location = new System.Drawing.Point(74, 218);
+            this.lblHinhAnh.Location = new System.Drawing.Point(83, 218);
             this.lblHinhAnh.Name = "lblHinhAnh";
             this.lblHinhAnh.Size = new System.Drawing.Size(41, 13);
             this.lblHinhAnh.TabIndex = 25;
@@ -346,7 +350,7 @@
             // 
             this.lblNgayLam.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNgayLam.AutoSize = true;
-            this.lblNgayLam.Location = new System.Drawing.Point(74, 248);
+            this.lblNgayLam.Location = new System.Drawing.Point(83, 248);
             this.lblNgayLam.Name = "lblNgayLam";
             this.lblNgayLam.Size = new System.Drawing.Size(41, 13);
             this.lblNgayLam.TabIndex = 26;
@@ -356,7 +360,7 @@
             // 
             this.lblNgayNghi.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNgayNghi.AutoSize = true;
-            this.lblNgayNghi.Location = new System.Drawing.Point(74, 278);
+            this.lblNgayNghi.Location = new System.Drawing.Point(83, 278);
             this.lblNgayNghi.Name = "lblNgayNghi";
             this.lblNgayNghi.Size = new System.Drawing.Size(41, 13);
             this.lblNgayNghi.TabIndex = 27;
@@ -380,13 +384,13 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.splitContainer1.Size = new System.Drawing.Size(766, 444);
-            this.splitContainer1.SplitterDistance = 254;
+            this.splitContainer1.Size = new System.Drawing.Size(911, 444);
+            this.splitContainer1.SplitterDistance = 302;
             this.splitContainer1.TabIndex = 3;
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(90, 6);
+            this.btnSua.Location = new System.Drawing.Point(90, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 3;
@@ -420,7 +424,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 268F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(502, 441);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(599, 441);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -433,10 +437,11 @@
             this.flowLayoutPanel1.Controls.Add(this.label12);
             this.flowLayoutPanel1.Controls.Add(this.dteDenNgay);
             this.flowLayoutPanel1.Controls.Add(this.btnLoc);
+            this.flowLayoutPanel1.Controls.Add(this.btnMacDinh);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(502, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(599, 30);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label11
@@ -485,6 +490,7 @@
             this.btnLoc.TabIndex = 4;
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.onFilterSubmited);
             // 
             // tblLuong
             // 
@@ -510,7 +516,7 @@
             this.tblLuong.Name = "tblLuong";
             this.tblLuong.ReadOnly = true;
             this.tblLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblLuong.Size = new System.Drawing.Size(502, 411);
+            this.tblLuong.Size = new System.Drawing.Size(599, 411);
             this.tblLuong.TabIndex = 1;
             this.tblLuong.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLuong_CellFormatting);
             // 
@@ -571,16 +577,29 @@
             this.clmNhanVien.Visible = false;
             this.clmNhanVien.Width = 81;
             // 
+            // btnMacDinh
+            // 
+            this.btnMacDinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnMacDinh.Location = new System.Drawing.Point(469, 3);
+            this.btnMacDinh.Name = "btnMacDinh";
+            this.btnMacDinh.Size = new System.Drawing.Size(75, 23);
+            this.btnMacDinh.TabIndex = 5;
+            this.btnMacDinh.Text = "Mặc định";
+            this.btnMacDinh.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Visible = false;
+            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinhSubmited);
+            // 
             // Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(784, 462);
+            this.ClientSize = new System.Drawing.Size(929, 462);
             this.Controls.Add(this.splitContainer1);
-            this.MaximumSize = new System.Drawing.Size(800, 500);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MaximumSize = new System.Drawing.Size(945, 500);
+            this.MinimumSize = new System.Drawing.Size(945, 500);
             this.Name = "Detail";
             this.Text = "Xem";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -643,5 +662,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmHeSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNhanVien;
+        protected System.Windows.Forms.Button btnMacDinh;
     }
 }

@@ -32,5 +32,19 @@ namespace Qly_NVien_Luong_Form.FormHandler.TinhLuong
             this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc != null? base.tinhLuong.ngay_ket_thuc.Value: DateTime.Now;
             this.dteTuNgay.Value = base.tinhLuong.ngay_bat_dau;
         }
+
+        /*Override lại method cha*/
+        private void onSubmit(object sender, EventArgs e)
+        {
+            base.onSubmit(sender, e);
+
+            /*Thêm vào cơ sở dữ liệu*/
+            if (base.tinhLuong != null)
+            {
+                tinhLuongService.update(base.tinhLuong);
+                System.Windows.Forms.MessageBox.Show("Sửa công tác thành công!");
+                this.Close();
+            }
+        }
     }
 }
