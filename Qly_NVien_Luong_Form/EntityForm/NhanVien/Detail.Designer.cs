@@ -61,6 +61,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dteDenNgay = new System.Windows.Forms.DateTimePicker();
             this.btnLoc = new System.Windows.Forms.Button();
+            this.btnMacDinh = new System.Windows.Forms.Button();
             this.tblLuong = new System.Windows.Forms.DataGridView();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +70,6 @@
             this.clmHeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMacDinh = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -492,6 +492,19 @@
             this.btnLoc.UseVisualStyleBackColor = true;
             this.btnLoc.Click += new System.EventHandler(this.onFilterSubmited);
             // 
+            // btnMacDinh
+            // 
+            this.btnMacDinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnMacDinh.Location = new System.Drawing.Point(469, 3);
+            this.btnMacDinh.Name = "btnMacDinh";
+            this.btnMacDinh.Size = new System.Drawing.Size(75, 23);
+            this.btnMacDinh.TabIndex = 5;
+            this.btnMacDinh.Text = "Mặc định";
+            this.btnMacDinh.UseVisualStyleBackColor = true;
+            this.btnMacDinh.Visible = false;
+            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinhSubmited);
+            // 
             // tblLuong
             // 
             this.tblLuong.AllowUserToAddRows = false;
@@ -519,6 +532,7 @@
             this.tblLuong.Size = new System.Drawing.Size(599, 411);
             this.tblLuong.TabIndex = 1;
             this.tblLuong.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLuong_CellFormatting);
+            this.tblLuong.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.viewDetail);
             // 
             // clmId
             // 
@@ -576,19 +590,6 @@
             this.clmNhanVien.ReadOnly = true;
             this.clmNhanVien.Visible = false;
             this.clmNhanVien.Width = 81;
-            // 
-            // btnMacDinh
-            // 
-            this.btnMacDinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMacDinh.Location = new System.Drawing.Point(469, 3);
-            this.btnMacDinh.Name = "btnMacDinh";
-            this.btnMacDinh.Size = new System.Drawing.Size(75, 23);
-            this.btnMacDinh.TabIndex = 5;
-            this.btnMacDinh.Text = "Mặc định";
-            this.btnMacDinh.UseVisualStyleBackColor = true;
-            this.btnMacDinh.Visible = false;
-            this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinhSubmited);
             // 
             // Detail
             // 
