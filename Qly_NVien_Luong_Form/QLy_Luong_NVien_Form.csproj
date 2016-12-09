@@ -56,39 +56,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormHandler\NhanVien\Create.cs">
+    <Compile Include="EntityForm\NhanVien\Create.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHandler\NhanVien\Edit.cs">
+    <Compile Include="EntityForm\NhanVien\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOnly\MainControl.cs">
+    <Compile Include="EntityForm\TinhLuong\Create.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOnly\MainControl.Designer.cs">
+    <Compile Include="EntityForm\TinhLuong\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\MainControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOnly\NhanVien\Criteria.cs">
+    <Compile Include="EntityForm\NhanVien\Criteria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOnly\NhanVien\Criteria.Designer.cs">
+    <Compile Include="EntityForm\NhanVien\Criteria.Designer.cs">
       <DependentUpon>Criteria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOnly\NhanVien\Detail.cs">
+    <Compile Include="EntityForm\NhanVien\Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOnly\NhanVien\Detail.Designer.cs">
+    <Compile Include="EntityForm\NhanVien\Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityForm\TinhLuong\Criteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\TinhLuong\Criteria.Designer.cs">
+      <DependentUpon>Criteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityForm\TinhLuong\Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\TinhLuong\Detail.Designer.cs">
       <DependentUpon>Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormOnly\MainControl.resx">
+    <EmbeddedResource Include="EntityForm\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOnly\NhanVien\Criteria.resx">
+    <EmbeddedResource Include="EntityForm\NhanVien\Criteria.resx">
       <DependentUpon>Criteria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOnly\NhanVien\Detail.resx">
+    <EmbeddedResource Include="EntityForm\NhanVien\Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityForm\TinhLuong\Criteria.resx">
+      <DependentUpon>Criteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityForm\TinhLuong\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,11 +143,18 @@
       <Project>{9d60f93b-a621-47c4-b874-eff76f41d021}</Project>
       <Name>Qly_Luong_NVien_Model</Name>
     </ProjectReference>
+<<<<<<< HEAD:Qly_NVien_Luong_Form/Qly_NVien_Luong_Form.csproj
     <ProjectReference Include="F:\Hoc\MoHinhPhanLop\Template\ObjectListViewDemo\ObjectListView\ObjectListView2012.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
       <Name>ObjectListView2012</Name>
+=======
+    <ProjectReference Include="..\Qly_Luong_NVien_Service\Qly_Luong_NVien_Service.csproj">
+      <Project>{af7f83e3-bf45-4536-a749-8361f11bc82d}</Project>
+      <Name>Qly_Luong_NVien_Service</Name>
+>>>>>>> db763f8d61b4a269c6e4ba4d110ea72b9239fbfb:Qly_NVien_Luong_Form/QLy_Luong_NVien_Form.csproj
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

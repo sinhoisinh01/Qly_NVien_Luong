@@ -44,7 +44,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
         }
 
-        public virtual void onSubmit(object sender, EventArgs e)
+        protected void onSubmit(object sender, EventArgs e)
         {
             /*Binding dữ liệu vào thuộc tính data*/
             bindingData();
