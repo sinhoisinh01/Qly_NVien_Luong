@@ -119,6 +119,10 @@
       <Project>{9d60f93b-a621-47c4-b874-eff76f41d021}</Project>
       <Name>Qly_Luong_NVien_Model</Name>
     </ProjectReference>
+    <ProjectReference Include="F:\Hoc\MoHinhPhanLop\Template\ObjectListViewDemo\ObjectListView\ObjectListView2012.csproj">
+      <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
+      <Name>ObjectListView2012</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
