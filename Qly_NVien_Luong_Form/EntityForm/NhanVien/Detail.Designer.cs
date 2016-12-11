@@ -1,4 +1,4 @@
-﻿namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
+﻿namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
     partial class Detail
     {

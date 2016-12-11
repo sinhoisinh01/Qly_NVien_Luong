@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Qly_NVien_Luong_Form.FormHandler.TinhLuong;
+using Qly_NVien_Luong_Form.EntityForm.TinhLuong;
 using Qly_Luong_NVien_Service;
 using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
+namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
     public partial class Detail : Form
     {
         private Qly_Luong_NVien_Model.NhanVien nhanVien = null;
         private NhanVienService nhanVienService = new NhanVienService();
         private TinhLuongService tinhLuongService = new TinhLuongService();
+        private NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
 
         public Detail(object id)
         {
@@ -31,13 +32,25 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
         private void loadData(object id)
         {
             //Tải thông tin nhân viên
-            this.nhanVien = nhanVienService.find((int)id);
+            this.nhanVien = dbContext.nhan_vien.Find((int)id);
             if (nhanVien == null)
                 throw new KeyNotFoundException();
 
             //Tải bảng công tác của nhân viên đó
-            ISet<Qly_Luong_NVien_Model.TinhLuong> congTac = tinhLuongService.findByNhanVien(this.nhanVien);
-            var bindingList = new BindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac.ToArray());
+            loadCongTac();
+        }
+
+        private void loadCongTac()
+        {
+            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.ToList();
+            IList<Qly_Luong_NVien_Model.TinhLuong> result = new List<Qly_Luong_NVien_Model.TinhLuong>();
+            foreach(var e in congTac) {
+                if (e.nhan_vien == null)
+                    continue;
+                if (e.nhan_vien.id == this.nhanVien.id)
+                    result.Add(e);
+            }
+            var bindingList = new BindingList<Qly_Luong_NVien_Model.TinhLuong>(result.ToArray());
             var source = new BindingSource(bindingList, null);
             this.tblLuong.DataSource = source;
         }
@@ -62,16 +75,27 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
         //Nhấn vào nút thêm chuyển công tác
         private void onAdd(object sender, EventArgs e)
         {
-            Qly_NVien_Luong_Form.FormOnly.TinhLuong.Criteria criteria = new Create(nhanVien);
+            Qly_NVien_Luong_Form.EntityForm.TinhLuong.Criteria criteria = new Qly_NVien_Luong_Form.EntityForm.TinhLuong.Create(this.nhanVien);
             criteria.ShowDialog();
+            loadCongTac();
         }
 
         //Nhấn vào nút sửa công tác
         private void onEdit(object sender, EventArgs e)
         {
             //Dòng dưới chỉ set tạm thời
-            Qly_NVien_Luong_Form.FormOnly.TinhLuong.Criteria criteria = new Edit(0);
-            criteria.ShowDialog();
+            try
+            {
+                var selectedRow = tblLuong.SelectedRows[0];
+                var id = selectedRow.Cells[0].Value;
+                Qly_NVien_Luong_Form.EntityForm.TinhLuong.Criteria form = new Qly_NVien_Luong_Form.EntityForm.TinhLuong.Edit(id);
+                form.ShowDialog();
+                loadCongTac();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
         
         private void tblLuong_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -90,8 +114,16 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             var fromDate = dteTuNgay.Value;
             var toDate = dteDenNgay.Value;
 
-            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = tinhLuongService.findByDateRange(this.nhanVien, fromDate, toDate).ToList();
-            tblLuong.DataSource = tinhLuongs;
+            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = dbContext.tinh_luong.ToList();
+            IList<Qly_Luong_NVien_Model.TinhLuong> result = new List<Qly_Luong_NVien_Model.TinhLuong>();
+            foreach(var a in tinhLuongs)
+            {
+                if (a == null)
+                    continue;
+                if (a.ngay_bat_dau >= fromDate.Date && a.ngay_ket_thuc <= toDate.Date)
+                    result.Add(a);
+            }
+            tblLuong.DataSource = result;
 
             //Hiển thị nút reset
             btnMacDinh.Visible = true;
@@ -100,8 +132,17 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
         //Nút mặc định được nhấn
         private void btnMacDinhSubmited(object sender, EventArgs e)
         {
-            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = tinhLuongService.findByNhanVien(this.nhanVien).ToList();
-            tblLuong.DataSource = tinhLuongs;
+            IList<Qly_Luong_NVien_Model.TinhLuong> tinhLuongs = dbContext.tinh_luong.ToList();
+            IList<Qly_Luong_NVien_Model.TinhLuong> result = new List<Qly_Luong_NVien_Model.TinhLuong>();
+            foreach(var a in tinhLuongs)
+            {
+                if (a == null)
+                    continue;
+                if (a.nhan_vien.id == this.nhanVien.id)
+                    result.Add(a);
+            }
+
+            tblLuong.DataSource = result;
 
             //Tắt hiển thị
             btnMacDinh.Visible = false;
@@ -114,7 +155,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             {
                 var selectedRow = tblLuong.Rows[e.RowIndex];
                 var id = selectedRow.Cells[0].Value;
-                Qly_NVien_Luong_Form.FormOnly.TinhLuong.Detail detail = new Qly_NVien_Luong_Form.FormOnly.TinhLuong.Detail(id);
+                Qly_NVien_Luong_Form.EntityForm.TinhLuong.Detail detail = new Qly_NVien_Luong_Form.EntityForm.TinhLuong.Detail(id);
                 detail.ShowDialog();
             }
         }

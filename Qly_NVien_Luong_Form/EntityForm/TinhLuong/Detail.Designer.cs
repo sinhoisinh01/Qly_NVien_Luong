@@ -1,4 +1,4 @@
-﻿namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
+﻿namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 {
     partial class Detail
     {
