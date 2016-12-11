@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
+namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
     public partial class Criteria : Form
     {
@@ -44,7 +44,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.NhanVien
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
         }
 
-        protected void onSubmit(object sender, EventArgs e)
+        public virtual void onSubmit(object sender, EventArgs e)
         {
             /*Binding dữ liệu vào thuộc tính data*/
             bindingData();

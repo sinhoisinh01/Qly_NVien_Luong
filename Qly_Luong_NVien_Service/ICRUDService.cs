@@ -10,7 +10,7 @@ namespace Qly_Luong_NVien_Service
      * T kiểu dữ liệu muốn tương tác
      * ID kiểu để truy vấn dữ liệu
      * */
-    interface ICRUDService<ENTITY, ID> where ENTITY: class
+    public interface ICRUDService<ENTITY, ID> where ENTITY: class
     {
         void add(ENTITY entity); //Thêm
         void remove(ENTITY entity); //Xóa theo entity

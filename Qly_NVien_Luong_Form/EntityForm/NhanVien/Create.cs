@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Qly_NVien_Luong_Form.FormOnly.NhanVien;
+using Qly_NVien_Luong_Form.EntityForm.NhanVien;
 using Qly_Luong_NVien_Service;
+using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
+namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
     public partial class Create : Criteria
     {
-        private NhanVienService nhanVienService = new NhanVienService();
-
         public Create()
         {
             //Override lại form
@@ -25,14 +24,16 @@ namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
         }
 
         /*Nhấn nút submit*/
-        private void onSubmit(object sender, EventArgs e)
+        public override void onSubmit(object sender, EventArgs e)
         {
+
             base.onSubmit(sender, e); //Sau khi binding dữ liệu
 
             /*Thêm vào cơ sở dữ liệu*/
             if (base.nhanVien != null)
             {
-                nhanVienService.add(base.nhanVien);            
+                dbContext.nhan_vien.Add(base.nhanVien);
+                dbContext.SaveChanges();
                 clearForm();
                 System.Windows.Forms.MessageBox.Show("Thêm nhân viên thành công!");
             }

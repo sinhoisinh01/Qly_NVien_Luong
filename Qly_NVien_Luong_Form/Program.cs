@@ -1,4 +1,4 @@
-﻿using Qly_NVien_Luong_Form.FormOnly;
+﻿using Qly_NVien_Luong_Form.EntityForm;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
