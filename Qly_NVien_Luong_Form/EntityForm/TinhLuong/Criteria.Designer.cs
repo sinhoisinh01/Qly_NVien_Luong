@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
+namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 {
     partial class Criteria
     {
@@ -41,7 +41,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
             this.cbxDonVi = new System.Windows.Forms.ComboBox();
             this.cbxChucVu = new System.Windows.Forms.ComboBox();
             this.cbxHeSoLuong = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -189,15 +189,15 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
             this.cbxHeSoLuong.TabIndex = 9;
             this.cbxHeSoLuong.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbxHeSoLuong_Format);
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.Location = new System.Drawing.Point(147, 171);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.onSubmit);
+            this.btnSubmit.Location = new System.Drawing.Point(147, 171);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 1;
+            this.btnSubmit.Text = "Thêm";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.onSubmit);
             // 
             // button2
             // 
@@ -215,7 +215,7 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 206);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(328, 244);
             this.MinimumSize = new System.Drawing.Size(328, 244);
@@ -235,12 +235,12 @@ namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
         protected System.Windows.Forms.DateTimePicker dteTuNgay;
         protected System.Windows.Forms.DateTimePicker dteDenNgay;
         protected System.Windows.Forms.ComboBox cbxDonVi;
         protected System.Windows.Forms.ComboBox cbxChucVu;
         protected System.Windows.Forms.ComboBox cbxHeSoLuong;
         private System.Windows.Forms.Button button2;
+        public Button btnSubmit;
     }
 }

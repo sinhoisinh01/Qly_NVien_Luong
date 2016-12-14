@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.FormOnly.TinhLuong
+namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 {
     public partial class Detail : Form
     {

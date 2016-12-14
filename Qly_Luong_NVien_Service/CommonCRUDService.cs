@@ -11,12 +11,12 @@ namespace Qly_Luong_NVien_Service
     public abstract class CommonCRUDService<ENTITY, ID> : ICRUDService<ENTITY, ID>
         where ENTITY: class
     {
-        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext;
+        public Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext;
         protected DbSet dbSet = null;
 
         public CommonCRUDService()
         {
-            dbContext = new NhanVienLuongDBContext();
+            this.dbContext = new Qly_Luong_NVien_Model.NhanVienLuongDBContext();
             dbSet = detectedClassDbSet();
         }
         
@@ -58,13 +58,15 @@ namespace Qly_Luong_NVien_Service
 
         public void add(ENTITY entity)
         {
-            dbSet.Add(entity);
+            dbSet.Add(entity);            
             dbContext.SaveChanges();
         }
 
         public void remove(ENTITY entity)
         {
+            dbSet.Attach(entity);
             dbSet.Remove(entity);
+            dbContext.SaveChanges();
         }
 
         public void remove(IEnumerable<ENTITY> entities)
@@ -74,12 +76,14 @@ namespace Qly_Luong_NVien_Service
 
         public IEnumerable<ENTITY> findAll()
         {
-            return dbContext.Set<ENTITY>();
+            IList<ENTITY> data = dbContext.Set<ENTITY>().ToList();
+            return data;
         }
 
         public ENTITY find(ID id)
         {
-            return (ENTITY)dbSet.Find(id);
+            ENTITY e = (ENTITY)dbSet.Find(id);
+            return e;
         }
 
         public void update(ENTITY entity)

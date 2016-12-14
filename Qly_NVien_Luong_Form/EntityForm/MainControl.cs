@@ -1,6 +1,5 @@
 ﻿using Qly_Luong_NVien_Service;
-using Qly_NVien_Luong_Form.FormHandler.NhanVien;
-using Qly_NVien_Luong_Form.FormOnly.NhanVien;
+using Qly_NVien_Luong_Form.EntityForm.NhanVien;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.FormOnly
+namespace Qly_NVien_Luong_Form.EntityForm
 {
     public partial class MainControl : Form
     {
-        private NhanVienService nhanVienService = new NhanVienService();
+        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();        
 
         public MainControl()
         {
@@ -25,7 +25,7 @@ namespace Qly_NVien_Luong_Form.FormOnly
 
         private void loadDataToTable()
         {
-            IList<Qly_Luong_NVien_Model.NhanVien> nhanVienList = nhanVienService.findAll().ToArray();
+            IList<Qly_Luong_NVien_Model.NhanVien> nhanVienList = dbContext.nhan_vien.ToList().ToArray();
             var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(nhanVienList);
             var source = new BindingSource(bindingList, null);
             this.tblData.DataSource = source;
@@ -74,10 +74,11 @@ namespace Qly_NVien_Luong_Form.FormOnly
             if (result == DialogResult.Yes)
             {
                 var id = tblData.SelectedRows[0].Cells[0].Value;
-                var nhanVien = nhanVienService.find((int)id);
+                var nhanVien = dbContext.nhan_vien.Find((int)id);
                 if (nhanVien != null)
                 {
-                    nhanVienService.update(nhanVien);
+                    dbContext.nhan_vien.Remove(nhanVien);
+                    dbContext.SaveChanges();
                     loadDataToTable();
                 }
             }

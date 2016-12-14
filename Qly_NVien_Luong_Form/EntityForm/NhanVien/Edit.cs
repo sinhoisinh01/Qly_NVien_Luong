@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Qly_NVien_Luong_Form.FormOnly.NhanVien;
+using Qly_NVien_Luong_Form.EntityForm.NhanVien;
 using System.Data.Entity;
 using Qly_Luong_NVien_Service;
 
-namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
+namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
     public partial class Edit : Criteria
     {
-        private NhanVienService nhanVienService = new NhanVienService();
-
         public Edit(object id):base()
         {
             //Query dữ liệu lên            
-            if(id != null)
-                base.nhanVien = base.dbContext.nhan_vien.Find(id);
+            if (id != null)
+                base.nhanVien = dbContext.nhan_vien.Where(s => s.id == (int)id).Single();
             else throw new ArgumentNullException();
 
             //Set dữ liệu vào form
@@ -45,14 +43,20 @@ namespace Qly_NVien_Luong_Form.FormHandler.NhanVien
             base.Text = "Sửa thông tin nhân viên";
         }
 
-        private void onSubmit(object sender, EventArgs e)
+        public override void onSubmit(object sender, EventArgs e)
         {
             base.onSubmit(sender, e);
-
+            
             /*Cập nhập database*/
             if(base.nhanVien != null)
             {
-                nhanVienService.update(base.nhanVien);
+                try
+                {
+                    dbContext.Entry(base.nhanVien).State = EntityState.Modified;
+                    dbContext.SaveChanges();
+                } catch(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
+                {
+                }
                 base.Close(); //Đóng form
             }
         }
