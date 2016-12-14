@@ -38,8 +38,8 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             /*Thêm vào cơ sở dữ liệu*/
             if (base.tinhLuong != null)
             {
-                dbContext.nhan_vien.Attach(nhanVien);
-                dbContext.tinh_luong.Add(base.tinhLuong);
+                base.dbContext.nhan_vien.Attach(nhanVien);
+                base.dbContext.tinh_luong.Add(base.tinhLuong);
                 dbContext.SaveChanges();
                 clearForm();
                 System.Windows.Forms.MessageBox.Show("Thêm công tác thành công!");
