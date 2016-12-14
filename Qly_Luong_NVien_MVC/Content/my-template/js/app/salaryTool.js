@@ -12,7 +12,7 @@ const KET_THUC_SAU_THOI_DIEM_XET = 7;
  * Output: 30
  */
 function getDaysOfDate(dt) {
-    switch (dt.getMonth()) {
+    switch (dt.getMonth() + 1) {
         case 2:
             if (dt.getFullYear() % 4 == 0)
                 return 29;
@@ -46,34 +46,40 @@ function calculateSalary(scope, date) {
     var timeTable = [];
     for (var i = 1; i <= numberOfDays; i++) {
         var dt = new Date(date.getFullYear(), date.getMonth(), i);
-        var maxRow = getMaxSalaryByExactlyDay(getSalaryByDate(scope, dt));
-        timeTable.push(maxRow);
+        var salaryByDate = getSalaryByDate(scope, dt);
+        if (salaryByDate) {
+            var maxRow = getMaxSalaryByExactlyDay(salaryByDate);
+            if (maxRow) {
+                timeTable.push(maxRow);
+            }  
+        }   
     }   
+    if (timeTable.length != 0) {
+        var tmp = [];
+        tmp.push(timeTable[0]);
+        var index = 0;
+        var count = 1;
+        for (var i = 1; i < numberOfDays; i++) {
+            if (timeTable[i].id == tmp[index].id) {
+                count++;
+            }
+            else {
+                tmp[index].so_ngay = count;
+                tmp.push(timeTable[i]);
+                count = 1;
+                index++;
+            }
 
-    var tmp = [];
-    tmp.push(timeTable[0]);
-    var index = 0;
-    var count = 1;
-    for (var i = 1; i < numberOfDays; i++) {
-        if (timeTable[i].id == tmp[index].id) {
-            count++;
+            if (i == numberOfDays - 1) {
+                tmp[index].so_ngay = count;
+            }
         }
-        else {
-            tmp[index].so_ngay = count;
-            tmp.push(timeTable[i]);
-            count = 1;
-            index++;
+        for (var i = 0; i < tmp.length; i++) {
+            scope.luong += tmp[index].so_ngay * tmp[index].thanh_tien;
         }
-
-        if (i == numberOfDays - 1) {
-            tmp[index].so_ngay = count;
-        }
+        return tmp;
     }
-    for (var i = 0; i < tmp.length; i++)
-    {
-        scope.luong += tmp[index].so_ngay * tmp[index].thanh_tien;
-    }
-    return tmp;
+    return null;
 }
 
 /*

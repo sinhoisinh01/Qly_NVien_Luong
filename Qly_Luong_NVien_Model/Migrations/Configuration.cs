@@ -850,6 +850,43 @@
             context.hang_so.AddOrUpdate(hang_so);
             /* Hết phần dữ liệu tính lương */
 
+            tinhLuong = new TinhLuong()
+            {
+                id = 2,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(21),
+                he_so_luong = context.he_so_luong.Find(37),
+                ngay_bat_dau = new DateTime(2013, 4, 1),
+                ngay_ket_thuc = new DateTime(2014, 9, 2)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+            tinhLuong = new TinhLuong()
+            {
+                id = 2,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(20),
+                he_so_luong = context.he_so_luong.Find(37),
+                ngay_bat_dau = new DateTime(2014, 9, 3),
+                ngay_ket_thuc = new DateTime(2015, 10, 7)
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+            tinhLuong = new TinhLuong()
+            {
+                id = 2,
+                nhan_vien = context.nhan_vien.Find(1),
+                don_vi = context.don_vi.Find(1),
+                chuc_vu = context.chuc_vu.Find(19),
+                he_so_luong = context.he_so_luong.Find(25),
+                ngay_bat_dau = new DateTime(2015, 10, 8),
+                ngay_ket_thuc = null
+
+            };
+            context.tinh_luong.AddOrUpdate(tinhLuong);
+
             base.Seed(context);
         }
     }

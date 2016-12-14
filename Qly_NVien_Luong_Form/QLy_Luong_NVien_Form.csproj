@@ -143,15 +143,9 @@
       <Project>{9d60f93b-a621-47c4-b874-eff76f41d021}</Project>
       <Name>Qly_Luong_NVien_Model</Name>
     </ProjectReference>
-<<<<<<< HEAD:Qly_NVien_Luong_Form/Qly_NVien_Luong_Form.csproj
-    <ProjectReference Include="F:\Hoc\MoHinhPhanLop\Template\ObjectListViewDemo\ObjectListView\ObjectListView2012.csproj">
-      <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
-      <Name>ObjectListView2012</Name>
-=======
     <ProjectReference Include="..\Qly_Luong_NVien_Service\Qly_Luong_NVien_Service.csproj">
       <Project>{af7f83e3-bf45-4536-a749-8361f11bc82d}</Project>
       <Name>Qly_Luong_NVien_Service</Name>
->>>>>>> db763f8d61b4a269c6e4ba4d110ea72b9239fbfb:Qly_NVien_Luong_Form/QLy_Luong_NVien_Form.csproj
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

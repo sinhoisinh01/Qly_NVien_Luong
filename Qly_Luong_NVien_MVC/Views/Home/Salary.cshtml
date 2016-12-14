@@ -141,7 +141,7 @@
                     <table class="table table-bordered table-hover">
                         <thead class="thead-inverse">
                             <tr>
-                                <th class="col-lg-3">Giai đoạn</th>
+                                <th class="col-lg-3">Thời điểm</th>
                                 <th class="col-lg-3">Phòng ban</th>
                                 <th class="col-lg-3">Chức vụ</th>
                                 <th class="col-lg-2">Ngạch</th>
@@ -152,7 +152,7 @@
                             <!--tr ng-repeat-start="s in salaryTable | myfilter:fromDate:toDate"-->
                             <tr ng-repeat-start="s in salaryTable">
                                 <td class="col-lg-3" rowspan="2">
-                                    Từ {{s.ngay_bat_dau | date: 'dd/MM/y'}}  {{s.ngay_ket_thuc == null ? 'đến nay' : ' - ' + (s.ngay_ket_thuc | date: 'dd/MM/y')}}
+                                    Từ {{s.ngay_bat_dau | date: 'dd/MM/y'}}
                                 </td>
                                 <td class="col-lg-3" rowspan="2">{{s.don_vi.ten_goi}}</td>
                                 <td class="col-lg-2">{{s.chuc_vu.ten_chuc_vu}}</td>
