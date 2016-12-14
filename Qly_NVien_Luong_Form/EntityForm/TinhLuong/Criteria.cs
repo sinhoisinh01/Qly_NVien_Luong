@@ -14,10 +14,10 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 {
     public partial class Criteria : Form
     {
+        protected NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
+
         protected Qly_Luong_NVien_Model.TinhLuong tinhLuong = null;
         protected Qly_Luong_NVien_Model.NhanVien nhanVien = null;
-        
-        protected NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
 
         public Criteria(Qly_Luong_NVien_Model.NhanVien nhanVien)
         {
@@ -38,42 +38,28 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             cbxChucVu.DataSource = chucVus;
             cbxChucVu.ValueMember = "id";
             cbxChucVu.DisplayMember = "ten_chuc_vu";
-            if (tinhLuong != null)
-                if(tinhLuong.chuc_vu != null)
-                    cbxChucVu.SelectedItem = tinhLuong.chuc_vu;
-            else
-                cbxChucVu.SelectedIndex = 0;
 
             IList<HeSoLuong> heSoLuongs = dbContext.he_so_luong.ToList();
             cbxHeSoLuong.DataSource = heSoLuongs;
             cbxHeSoLuong.ValueMember = "id";
             cbxHeSoLuong.DisplayMember = "he_so";
-            if (tinhLuong != null)
-                if (tinhLuong.he_so_luong != null)
-                    cbxHeSoLuong.SelectedItem = tinhLuong.he_so_luong;
-                else
-                    cbxHeSoLuong.SelectedIndex = 0;
 
             IList<DonVi> donVis = dbContext.don_vi.ToList();
             cbxDonVi.DataSource = donVis;
             cbxDonVi.ValueMember = "id";
             cbxDonVi.DisplayMember = "ten_goi";
-            if (tinhLuong != null)
-                if (tinhLuong.don_vi != null)
-                    cbxDonVi.SelectedItem = tinhLuong.don_vi;
-                else
-                    cbxDonVi.SelectedIndex = 0;
         }
 
         //Binding dữ liệu vào đối tượng
         private void bindingData()
-        {            
+        {
+            if (tinhLuong == null)
+                tinhLuong = new Qly_Luong_NVien_Model.TinhLuong();
             this.tinhLuong.chuc_vu = (ChucVu)this.cbxChucVu.SelectedItem;
             this.tinhLuong.don_vi = (DonVi)this.cbxDonVi.SelectedItem;
-            this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;
-            this.tinhLuong.he_so_luong.ngach = (this.cbxHeSoLuong.SelectedItem as HeSoLuong).ngach;
+            this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
             this.tinhLuong.ngay_bat_dau = this.dteTuNgay.Value.Date;
-            this.tinhLuong.ngay_bat_dau = this.dteDenNgay.Value.Date;
+            this.tinhLuong.ngay_ket_thuc = this.dteDenNgay.Value.Date;
             this.tinhLuong.nhan_vien = this.nhanVien;
         }
 

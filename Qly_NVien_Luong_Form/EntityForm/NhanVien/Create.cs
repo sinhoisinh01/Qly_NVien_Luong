@@ -26,7 +26,6 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         /*Nhấn nút submit*/
         public override void onSubmit(object sender, EventArgs e)
         {
-
             base.onSubmit(sender, e); //Sau khi binding dữ liệu
 
             /*Thêm vào cơ sở dữ liệu*/

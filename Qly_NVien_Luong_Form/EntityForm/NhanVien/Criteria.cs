@@ -22,9 +22,10 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         }
 
         /*Binding dữ liệu*/
-        private void bindingData()
+        protected void bindingData()
         {
-            nhanVien = new Qly_Luong_NVien_Model.NhanVien();
+            if (nhanVien == null)
+                nhanVien = new Qly_Luong_NVien_Model.NhanVien();
             nhanVien.ma_so = texMaSo.Text;
             nhanVien.ho = texHo.Text;
             nhanVien.ten = texTen.Text;
@@ -39,7 +40,7 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         }
 
         /*Validate dữ liệu*/
-        private void validateData()
+        protected void validateData()
         {
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
         }

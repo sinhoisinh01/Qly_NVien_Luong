@@ -10,12 +10,11 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 {
     public partial class Edit : EntityForm.TinhLuong.Criteria
     {
-        private TinhLuongService tinhLuongService = new TinhLuongService();
 
         public Edit(object id):base()
         {
             //Query dữ liệu lên
-            base.tinhLuong = tinhLuongService.find((int) id);
+            base.tinhLuong = dbContext.tinh_luong.Find((int) id);
 
             //Đưa dữ liệu query vào form
             setDataToForm();
@@ -27,9 +26,9 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 
         private void setDataToForm()
         {
-            this.cbxChucVu.SelectedItem = base.tinhLuong.chuc_vu;
-            this.cbxDonVi.SelectedItem = base.tinhLuong.don_vi;
-            this.cbxHeSoLuong.SelectedItem = base.tinhLuong.he_so_luong;
+            this.cbxChucVu.SelectedValue = base.tinhLuong.chuc_vu.id;
+            this.cbxDonVi.SelectedValue = base.tinhLuong.don_vi.id;
+            this.cbxHeSoLuong.SelectedValue = base.tinhLuong.he_so_luong.id;
             this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc != null? base.tinhLuong.ngay_ket_thuc.Value: DateTime.Now;
             this.dteTuNgay.Value = base.tinhLuong.ngay_bat_dau;
         }
@@ -42,8 +41,14 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             /*Thêm vào cơ sở dữ liệu*/
             if (base.tinhLuong != null)
             {
-                dbContext.Entry(base.tinhLuong).State = System.Data.Entity.EntityState.Modified;
-                dbContext.SaveChanges();
+                try
+                {
+                    base.dbContext.Entry(base.tinhLuong).State = System.Data.Entity.EntityState.Modified;
+                    base.dbContext.SaveChanges();
+                } catch(Exception ex)
+                {
+                    Console.WriteLine("this block");
+                }
                 System.Windows.Forms.MessageBox.Show("Sửa công tác thành công!");
                 this.Close();
             }

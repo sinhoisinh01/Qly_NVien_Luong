@@ -15,28 +15,35 @@ namespace Qly_NVien_Luong_Form.EntityForm
 {
     public partial class MainControl : Form
     {
-        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();        
+        private IList<Qly_Luong_NVien_Model.NhanVien> nhanVienList;
+
+        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
 
         public MainControl()
         {
+            
             InitializeComponent();
             loadDataToTable();
         }
 
         private void loadDataToTable()
         {
-            IList<Qly_Luong_NVien_Model.NhanVien> nhanVienList = dbContext.nhan_vien.ToList().ToArray();
-            var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(nhanVienList);
+            this.nhanVienList = dbContext.Set<Qly_Luong_NVien_Model.NhanVien>().ToArray();
+            foreach(var e in nhanVienList)
+                dbContext.Entry<Qly_Luong_NVien_Model.NhanVien>(e).Reload();
+            var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(this.nhanVienList);
             var source = new BindingSource(bindingList, null);
             this.tblData.DataSource = source;
         }
-
+        
         /*Thêm dữ liệu*/
         private void onBtnAdd_Submit(object sender, EventArgs e)
         {
+            var selectedIndex = tblData.CurrentCell.RowIndex;
             Create form = new Create();
             form.ShowDialog();
             loadDataToTable();
+            tblData.Rows[selectedIndex].Selected = true;
         }
 
         /*Xem chi tiết dữ liệu*/
@@ -47,24 +54,20 @@ namespace Qly_NVien_Luong_Form.EntityForm
                 var selectedRow = tblData.Rows[e.RowIndex];
                 var id = selectedRow.Cells[0].Value;                
                 Detail detail = new Detail(id);
-                detail.ShowDialog();
+                detail.ShowDialog();             
             }
         }
 
         /*Sửa dòng dữ liệu*/
         private void editThisRow(object sender, EventArgs e)
         {
-            try
-            {
-                var selectedRow = tblData.SelectedRows[0];
-                var id = selectedRow.Cells[0].Value;
-                Edit form = new Edit(id);
-                form.ShowDialog();
-                loadDataToTable();
-            } catch(Exception ex)
-            {
-                return;
-            }
+            var selectedIndex = tblData.CurrentCell.RowIndex;
+            var selectedRow = tblData.SelectedRows[0];
+            var id = selectedRow.Cells[0].Value;
+            Edit form = new Edit(id);
+            form.ShowDialog();
+            loadDataToTable();
+            tblData.Rows[selectedIndex].Selected = true;
         }
 
         /*Xóa dòng dữ liệu*/
@@ -77,6 +80,7 @@ namespace Qly_NVien_Luong_Form.EntityForm
                 var nhanVien = dbContext.nhan_vien.Find((int)id);
                 if (nhanVien != null)
                 {
+                    
                     dbContext.nhan_vien.Remove(nhanVien);
                     dbContext.SaveChanges();
                     loadDataToTable();

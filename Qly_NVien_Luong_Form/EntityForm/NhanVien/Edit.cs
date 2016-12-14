@@ -46,17 +46,12 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         public override void onSubmit(object sender, EventArgs e)
         {
             base.onSubmit(sender, e);
-            
+
             /*Cập nhập database*/
             if(base.nhanVien != null)
             {
-                try
-                {
-                    dbContext.Entry(base.nhanVien).State = EntityState.Modified;
-                    dbContext.SaveChanges();
-                } catch(System.Data.Entity.Infrastructure.DbUpdateConcurrencyException ex)
-                {
-                }
+                dbContext.Entry(base.nhanVien).State = EntityState.Modified;
+                dbContext.SaveChanges();
                 base.Close(); //Đóng form
             }
         }
