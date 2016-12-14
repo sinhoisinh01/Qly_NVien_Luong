@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUtil.cs" />
+    <Compile Include="DataCounter.cs" />
     <Compile Include="EntityForm\NhanVien\Create.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -90,7 +90,8 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         {
             var heSo = ((HeSoLuong)e.ListItem).he_so;
             var ngach = ((HeSoLuong)e.ListItem).ngach.ten_ngach;
-            e.Value = heSo + " / " + ngach;
+            var bac = ((HeSoLuong)e.ListItem).bac_luong;
+            e.Value = heSo + " / " + ngach + " / Bậc " + bac;
         }
     }
 }

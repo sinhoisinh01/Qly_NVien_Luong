@@ -35,6 +35,15 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             base.dteNgaySinh.Value = base.nhanVien.ngay_sinh;
             base.dteNgayNghi.Value = base.nhanVien.ngay_nghi_lam != null? base.nhanVien.ngay_nghi_lam.Value: DateTime.Now;
             base.dteNgayLam.Value = base.nhanVien.ngay_vao_lam;
+            if (base.nhanVien.gioi_tinh == false)
+            {
+                rdoNam.Checked = true;
+                rdoNu.Checked = false;
+            } else
+            {
+                rdoNam.Checked = false;
+                rdoNu.Checked = true;
+            }
         }
 
         private void overrideInitComp()

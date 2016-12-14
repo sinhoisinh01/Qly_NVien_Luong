@@ -34,6 +34,7 @@ namespace Qly_NVien_Luong_Form.EntityForm
             var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(this.nhanVienList);
             var source = new BindingSource(bindingList, null);
             this.tblData.DataSource = source;
+            DataCounter.autoIncrementTable(this.tblData);
         }
         
         /*Thêm dữ liệu*/
@@ -47,6 +48,7 @@ namespace Qly_NVien_Luong_Form.EntityForm
         }
 
         /*Xem chi tiết dữ liệu*/
+        /*
         private void viewThisRow(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -57,13 +59,14 @@ namespace Qly_NVien_Luong_Form.EntityForm
                 detail.ShowDialog();             
             }
         }
+        */
 
         /*Sửa dòng dữ liệu*/
         private void editThisRow(object sender, EventArgs e)
         {
             var selectedIndex = tblData.CurrentCell.RowIndex;
             var selectedRow = tblData.SelectedRows[0];
-            var id = selectedRow.Cells[0].Value;
+            var id = selectedRow.Cells["id"].Value;
             Edit form = new Edit(id);
             form.ShowDialog();
             loadDataToTable();
@@ -86,6 +89,34 @@ namespace Qly_NVien_Luong_Form.EntityForm
                     loadDataToTable();
                 }
             }
+        }
+
+
+        //Format table
+        private void tblData_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(this.tblData.Columns[e.ColumnIndex].Name == "gioiTinh")
+            {
+                if(e.Value != null)
+                {
+                    var temp = (bool)e.Value;
+                    if (temp == false)
+                        e.Value = "Nam";
+                    else
+                        e.Value = "Nữ";
+                }
+            }
+        }
+
+        //Click lên nút trên dòng dữ liệu
+        private void tblData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != tblData.Columns["btnViewDetail"].Index) return;
+
+            var selectedRow = tblData.Rows[e.RowIndex];
+            var id = selectedRow.Cells["id"].Value;
+            Detail detail = new Detail(id);
+            detail.ShowDialog();
         }
     }
 }
