@@ -48,6 +48,11 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             cbxDonVi.DataSource = donVis;
             cbxDonVi.ValueMember = "id";
             cbxDonVi.DisplayMember = "ten_goi";
+
+            IList<Ngach> ngachs = dbContext.ngach.ToList();
+            cbxNgach.DataSource = ngachs;
+            cbxNgach.ValueMember = "id";
+            cbxNgach.DisplayMember = "ten_ngach";
         }
 
         //Binding dữ liệu vào đối tượng
@@ -59,7 +64,10 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             this.tinhLuong.don_vi = (DonVi)this.cbxDonVi.SelectedItem;
             this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
             this.tinhLuong.ngay_bat_dau = this.dteTuNgay.Value.Date;
-            this.tinhLuong.ngay_ket_thuc = this.dteDenNgay.Value.Date;
+            if (chbLamHienTai.Checked)
+                this.tinhLuong.ngay_ket_thuc = null;
+            else
+                this.tinhLuong.ngay_ket_thuc = this.dteDenNgay.Value.Date;
             this.tinhLuong.nhan_vien = this.nhanVien;
         }
 
@@ -67,6 +75,10 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         private void validateData()
         {
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
+            if (this.tinhLuong.don_vi == null)
+                this.tinhLuong = null;
+            else if (this.tinhLuong.chuc_vu == null)
+                this.tinhLuong = null;
         }
 
         //Đóng form
@@ -91,7 +103,28 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             var heSo = ((HeSoLuong)e.ListItem).he_so;
             var ngach = ((HeSoLuong)e.ListItem).ngach.ten_ngach;
             var bac = ((HeSoLuong)e.ListItem).bac_luong;
-            e.Value = heSo + " / " + ngach + " / Bậc " + bac;
+            e.Value = "Bậc " + bac + " - Hệ số " + heSo;
+        }
+
+        //Thay đổi chọn ngạch
+        private void cbxNgach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ngach = cbxNgach.SelectedItem;
+            if (ngach != null)
+            {
+                var id = (ngach as Ngach).id;
+                var data = dbContext.he_so_luong.Where(hsl => hsl.ngach.id == id).ToList();
+                cbxHeSoLuong.DataSource = data;
+            }
+        }
+
+        //Bấm vào nút check
+        private void chbLamHienTai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbLamHienTai.Checked)
+                dteDenNgay.Enabled = false;
+            else
+                dteDenNgay.Enabled = true;
         }
     }
 }

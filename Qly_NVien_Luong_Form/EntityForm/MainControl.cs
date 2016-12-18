@@ -118,5 +118,12 @@ namespace Qly_NVien_Luong_Form.EntityForm
             Detail detail = new Detail(id);
             detail.ShowDialog();
         }
+
+        //Nhấn nút tìm kiếm
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            Search searchDialog = new Search();
+            searchDialog.ShowDialog();
+        }
     }
 }
