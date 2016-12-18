@@ -27,9 +27,12 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         private void setDataToForm()
         {
             this.cbxChucVu.SelectedValue = base.tinhLuong.chuc_vu.id;
+            this.cbxNgach.SelectedValue = base.tinhLuong.he_so_luong.ngach.id;
             this.cbxDonVi.SelectedValue = base.tinhLuong.don_vi.id;
             this.cbxHeSoLuong.SelectedValue = base.tinhLuong.he_so_luong.id;
-            this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc != null? base.tinhLuong.ngay_ket_thuc.Value: DateTime.Now;
+            if (base.tinhLuong.ngay_ket_thuc != null)
+                this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc.Value;
+            else chbLamHienTai.Checked = true;
             this.dteTuNgay.Value = base.tinhLuong.ngay_bat_dau;
         }
 

@@ -143,8 +143,6 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
                 e.Value = (e.Value as ChucVu).ten_chuc_vu;
             else if (e.Value is HeSoLuong && this.tblLuong.Columns[e.ColumnIndex].Name == "clmHeSoLuong")
                 e.Value = (e.Value as HeSoLuong).he_so;
-            else if (e.Value is HeSoLuong && this.tblLuong.Columns[e.ColumnIndex].Name == "clmNgach")
-                e.Value = (e.Value as HeSoLuong).ngach.ten_ngach + " / Bậc " + (e.Value as HeSoLuong).bac_luong;
         }
 
         //Nhấn nút lọc trên giao diện
