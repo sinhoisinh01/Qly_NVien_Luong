@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Qly_NVien_Luong_Form.EntityForm.TinhLuong;
 using Qly_Luong_NVien_Service;
 using Qly_Luong_NVien_Model;
+using Macchiator;
+using System.Data.Entity;
 
 namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 {
@@ -44,18 +46,8 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 
         private void loadCongTac()
         {
-            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.ToList();
-            IList<Qly_Luong_NVien_Model.TinhLuong> result = new List<Qly_Luong_NVien_Model.TinhLuong>();
-            foreach(var e in congTac) {
-                if (e.nhan_vien == null)
-                    continue;
-                if (e.nhan_vien.id == this.nhanVien.id)
-                {
-                    result.Add(e);
-                    dbContext.Entry(e).Reload();
-                }
-            }
-            var bindingList = new BindingList<Qly_Luong_NVien_Model.TinhLuong>(result.ToArray());
+            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.Where(tl => tl.nhan_vien.id == this.nhanVien.id).ToList();            
+            var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac);
             var source = new BindingSource(bindingList, null);
             this.tblLuong.DataSource = source;
         }
@@ -64,19 +56,13 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         {
             var fromDate = dteTuNgay.Value;
             var toDate = dteDenNgay.Value;
-            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.ToList();
-            IList<Qly_Luong_NVien_Model.TinhLuong> result = new List<Qly_Luong_NVien_Model.TinhLuong>();
-            foreach (var e in congTac)
-            {
-                if (e.nhan_vien == null)
-                    continue;
-                if (e.nhan_vien.id == this.nhanVien.id && e.ngay_bat_dau >= fromDate.Date && e.ngay_ket_thuc <= toDate.Date)
-                {
-                    result.Add(e);
-                    dbContext.Entry(e).Reload();
-                }
-            }
-            var bindingList = new BindingList<Qly_Luong_NVien_Model.TinhLuong>(result.ToArray());
+            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.Where(
+                tl => 
+                tl.nhan_vien.id == this.nhanVien.id &&
+                DbFunctions.TruncateTime(tl.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
+                DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate)
+            ).ToList();
+            var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac);
             var source = new BindingSource(bindingList, null);
             this.tblLuong.DataSource = source;
         }
