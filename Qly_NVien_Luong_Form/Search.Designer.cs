@@ -42,6 +42,7 @@
             this.dteToDate = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.chxBirthdaySearch = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -61,14 +62,16 @@
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.chxBirthdaySearch, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 118);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 139);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -106,6 +109,13 @@
             this.cbxSearchBy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbxSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSearchBy.FormattingEnabled = true;
+            this.cbxSearchBy.Items.AddRange(new object[] {
+            "Họ",
+            "Tên",
+            "Họ và tên",
+            "Địa chỉ",
+            "Dân tộc",
+            "Số điện thoại"});
             this.cbxSearchBy.Location = new System.Drawing.Point(76, 34);
             this.cbxSearchBy.Name = "cbxSearchBy";
             this.cbxSearchBy.Size = new System.Drawing.Size(242, 21);
@@ -160,7 +170,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 90);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(248, 26);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(248, 27);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // label5
@@ -183,7 +193,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(260, 136);
+            this.btnCancel.Location = new System.Drawing.Point(258, 157);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -194,7 +204,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(176, 136);
+            this.btnSearch.Location = new System.Drawing.Point(179, 157);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -202,16 +212,25 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // chxBirthdaySearch
+            // 
+            this.chxBirthdaySearch.AutoSize = true;
+            this.chxBirthdaySearch.Location = new System.Drawing.Point(76, 120);
+            this.chxBirthdaySearch.Name = "chxBirthdaySearch";
+            this.chxBirthdaySearch.Size = new System.Drawing.Size(115, 17);
+            this.chxBirthdaySearch.TabIndex = 7;
+            this.chxBirthdaySearch.Text = "Tìm theo ngày sinh";
+            this.chxBirthdaySearch.UseVisualStyleBackColor = true;
+            this.chxBirthdaySearch.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 166);
+            this.ClientSize = new System.Drawing.Size(345, 187);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(361, 204);
-            this.MinimumSize = new System.Drawing.Size(361, 204);
             this.Name = "Search";
             this.Text = "Tìm kiếm";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -240,5 +259,6 @@
         protected System.Windows.Forms.DateTimePicker dteToDate;
         protected System.Windows.Forms.Button btnSearch;
         protected System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chxBirthdaySearch;
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
+using Macchiator;
 
 namespace Qly_NVien_Luong_Form.EntityForm
 {
@@ -31,10 +32,13 @@ namespace Qly_NVien_Luong_Form.EntityForm
             this.nhanVienList = dbContext.Set<Qly_Luong_NVien_Model.NhanVien>().ToArray();
             foreach(var e in nhanVienList)
                 dbContext.Entry<Qly_Luong_NVien_Model.NhanVien>(e).Reload();
-            var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(this.nhanVienList);
+            //var bindingList = new BindingList<Qly_Luong_NVien_Model.NhanVien>(this.nhanVienList);
+            SortableBindingList<Qly_Luong_NVien_Model.NhanVien> bindingList;
+            bindingList = new SortableBindingList<Qly_Luong_NVien_Model.NhanVien>(this.nhanVienList.ToList());
             var source = new BindingSource(bindingList, null);
+            this.tblData.AutoGenerateColumns = false;
             this.tblData.DataSource = source;
-            DataCounter.autoIncrementTable(this.tblData);
+            //DataCounter.autoIncrementTable(this.tblData);
         }
         
         /*Thêm dữ liệu*/
@@ -124,6 +128,25 @@ namespace Qly_NVien_Luong_Form.EntityForm
         {
             Search searchDialog = new Search();
             searchDialog.ShowDialog();
+            List<Qly_Luong_NVien_Model.NhanVien> data = searchDialog.SearchResult;
+            if (data != null)
+            {
+                SortableBindingList<Qly_Luong_NVien_Model.NhanVien> bindingList;
+                bindingList = new SortableBindingList<Qly_Luong_NVien_Model.NhanVien>(data);
+                var source = new BindingSource(bindingList, null);
+                tblData.DataSource = source;
+                btnDefault.Visible = true;
+            }
+        }
+
+        //Khôi phục
+        private void btnDefault_Click(object sender, EventArgs e)
+        {
+            SortableBindingList<Qly_Luong_NVien_Model.NhanVien> bindingList;
+            bindingList = new SortableBindingList<Qly_Luong_NVien_Model.NhanVien>(dbContext.nhan_vien.ToList());
+            var source = new BindingSource(bindingList, null);
+            tblData.DataSource = source;
+            btnDefault.Visible = false;
         }
     }
 }
