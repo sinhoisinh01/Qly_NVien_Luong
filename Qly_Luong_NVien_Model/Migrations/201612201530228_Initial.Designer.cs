@@ -7,13 +7,13 @@ namespace Qly_Luong_NVien_Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddNewSeed : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNewSeed));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611230021100_AddNewSeed"; }
+            get { return "201612201530228_Initial"; }
         }
         
         string IMigrationMetadata.Source

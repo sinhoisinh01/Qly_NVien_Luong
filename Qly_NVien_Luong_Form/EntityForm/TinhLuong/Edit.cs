@@ -14,7 +14,7 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         public Edit(object id):base()
         {
             //Query dữ liệu lên
-            base.tinhLuong = dbContext.tinh_luong.Find((int) id);
+            base.tinhLuong = dbContext.lich_su_chuc_vu.Find((int) id);
 
             //Đưa dữ liệu query vào form
             setDataToForm();
@@ -27,9 +27,11 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         private void setDataToForm()
         {
             this.cbxChucVu.SelectedValue = base.tinhLuong.chuc_vu.id;
-            this.cbxNgach.SelectedValue = base.tinhLuong.he_so_luong.ngach.id;
+            // Changed
+            //this.cbxNgach.SelectedValue = base.tinhLuong.he_so_luong.ngach.id;
             this.cbxDonVi.SelectedValue = base.tinhLuong.don_vi.id;
-            this.cbxHeSoLuong.SelectedValue = base.tinhLuong.he_so_luong.id;
+            // Changed
+            //this.cbxHeSoLuong.SelectedValue = base.tinhLuong.he_so_luong.id;
             if (base.tinhLuong.ngay_ket_thuc != null)
                 this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc.Value;
             else chbLamHienTai.Checked = true;

@@ -3,7 +3,7 @@ namespace Qly_Luong_NVien_Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UpdateSeeder : DbMigration
+    public partial class AddDataLichSu1 : DbMigration
     {
         public override void Up()
         {

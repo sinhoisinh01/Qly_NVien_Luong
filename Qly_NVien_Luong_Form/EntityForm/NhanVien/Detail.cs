@@ -46,25 +46,27 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 
         private void loadCongTac()
         {
-            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.Where(tl => tl.nhan_vien.id == this.nhanVien.id).ToList();            
-            var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac);
-            var source = new BindingSource(bindingList, null);
-            this.tblLuong.DataSource = source;
+            // Changed
+            //IList<Qly_Luong_NVien_Model.LichSuChucVu> congTac = dbContext.tinh_luong.Where(tl => tl.nhan_vien.id == this.nhanVien.id).ToList();            
+            //var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.LichSuChucVu>(congTac);
+            //var source = new BindingSource(bindingList, null);
+            //this.tblLuong.DataSource = source;
         }
 
         private void loadCongTacTheoThoiGian()
         {
             var fromDate = dteTuNgay.Value;
             var toDate = dteDenNgay.Value;
-            IList<Qly_Luong_NVien_Model.TinhLuong> congTac = dbContext.tinh_luong.Where(
-                tl => 
-                tl.nhan_vien.id == this.nhanVien.id &&
-                DbFunctions.TruncateTime(tl.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
-                DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate)
-            ).ToList();
-            var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.TinhLuong>(congTac);
-            var source = new BindingSource(bindingList, null);
-            this.tblLuong.DataSource = source;
+            // Changed
+            //IList<Qly_Luong_NVien_Model.LichSuChucVu> congTac = dbContext.tinh_luong.Where(
+            //    tl => 
+            //    tl.nhan_vien.id == this.nhanVien.id &&
+            //    DbFunctions.TruncateTime(tl.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
+            //    DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate)
+            //).ToList();
+            //var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.LichSuChucVu>(congTac);
+            //var source = new BindingSource(bindingList, null);
+            //this.tblLuong.DataSource = source;
         }
         
         private void loadDuLieu()

@@ -53,8 +53,8 @@
             {
                 id = 1,
                 ma_so = "3113410100",
-                ho = "Đoàn",
-                ten = "Phúc Sinh",
+                ho = "Đoàn Phúc",
+                ten = "Sinh",
                 gioi_tinh = false,
                 ngay_sinh = new DateTime(1995, 4, 1),
                 dan_toc = "Kinh",
@@ -69,8 +69,8 @@
             {
                 id = 2,
                 ma_so = "3113410024",
-                ho = "Hồng",
-                ten = "Phúc Thạnh Đông",
+                ho = "Hồng Phúc Thạnh",
+                ten = "Đông",
                 gioi_tinh = false,
                 ngay_sinh = new DateTime(1995, 4, 1),
                 dan_toc = "Kinh",
@@ -78,6 +78,23 @@
                 cmnd = "025316441",
                 hinh_anh = null,
                 ngay_vao_lam = new DateTime(2013, 9, 5),
+                ngay_nghi_lam = null
+            };
+            context.nhan_vien.AddOrUpdate(nv);
+
+            nv = new NhanVien()
+            {
+                id = 3,
+                ma_so = "3114410167",
+                ho = "Trần Hoàng Thảo",
+                ten = "Vi",
+                gioi_tinh = false,
+                ngay_sinh = new DateTime(1996, 10, 12),
+                dan_toc = "Kinh",
+                dia_chi = "262 Lê Văn Sỹ, P14, Q3",
+                cmnd = "025316441",
+                hinh_anh = null,
+                ngay_vao_lam = new DateTime(2014, 9, 5),
                 ngay_nghi_lam = null
             };
             context.nhan_vien.AddOrUpdate(nv);
@@ -754,89 +771,57 @@
             /*------Hết phần dữ liệu Nhân Viên Bảo Vệ */
 
             /* Phần dữ liệu tính lương */
-            // Khoa CNTT - Chức vụ: Không - Ngạch: NV Kĩ thuật bậc 7 - Hệ số lương: 2.37 VK 1.16
-            TinhLuong tinhLuong = new TinhLuong()
+            // Khoa CNTT - Chức vụ: Không
+            LichSuChucVu lichSuChucVu = new LichSuChucVu()
             {
                 id = 1,
                 nhan_vien = context.nhan_vien.Find(1),
                 don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(21),
-                he_so_luong = context.he_so_luong.Find(47),
+                chuc_vu = context.chuc_vu.Find(11),
                 ngay_bat_dau = new DateTime(2013, 4, 1),
-                ngay_ket_thuc = new DateTime(2015, 9, 2)
+                ngay_ket_thuc = new DateTime(2016, 4, 1)
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
-            
-            // Khoa CNTT - Chức vụ: Không - Ngạch: NV Kĩ thuật bậc 8 - Hệ số lương: 2.37 VK 1.27
-            tinhLuong = new TinhLuong()
+            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu); 
+
+            // Khoa CNTT - Chức vụ: Phó bộ môn trực thuộc khoa
+            lichSuChucVu = new LichSuChucVu()
             {
                 id = 2,
                 nhan_vien = context.nhan_vien.Find(1),
                 don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(21),
-                he_so_luong = context.he_so_luong.Find(48),
-                ngay_bat_dau = new DateTime(2015, 9, 3),
-                ngay_ket_thuc = new DateTime(2016, 2, 1)
-
-            };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
-            
-            // Khoa CNTT - Chức vụ: Không - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
-            tinhLuong = new TinhLuong()
-            {
-                id = 3,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(21),
-                he_so_luong = context.he_so_luong.Find(25),
-                ngay_bat_dau = new DateTime(2016, 2, 2),
-                ngay_ket_thuc = new DateTime(2016, 4, 1)
-
-            };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
-
-            // Khoa CNTT - Chức vụ: Phó bộ môn trực thuộc khoa - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
-            tinhLuong = new TinhLuong()
-            {
-                id = 4,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(20),
-                he_so_luong = context.he_so_luong.Find(25),
+                chuc_vu = context.chuc_vu.Find(10),
                 ngay_bat_dau = new DateTime(2016, 4, 2),
                 ngay_ket_thuc = null
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
+            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
 
-            // TTTH - Chức vụ: Không - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
-            tinhLuong = new TinhLuong()
+            // TTTH - Chức vụ: Không
+            lichSuChucVu = new LichSuChucVu()
             {
-                id = 5,
+                id = 3,
                 nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(6),
-                chuc_vu = context.chuc_vu.Find(21),
-                he_so_luong = context.he_so_luong.Find(25),
+                don_vi = context.don_vi.Find(2),
+                chuc_vu = context.chuc_vu.Find(11),
                 ngay_bat_dau = new DateTime(2016, 5, 1),
                 ngay_ket_thuc = new DateTime(2016, 6, 1)
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
+            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
 
-            // TTTH - Chức vụ: Phó giám đốc trung tâm - Ngạch: Giảng viên bậc 1 - Hệ số lương: 2.34 VK 1.00
-            tinhLuong = new TinhLuong()
+            // TTTH - Chức vụ: Phó giám đốc trung tâm
+            lichSuChucVu = new LichSuChucVu()
             {
-                id = 6,
+                id = 4,
                 nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(6),
-                chuc_vu = context.chuc_vu.Find(18),
-                he_so_luong = context.he_so_luong.Find(25),
+                don_vi = context.don_vi.Find(2),
+                chuc_vu = context.chuc_vu.Find(8),
                 ngay_bat_dau = new DateTime(2016, 6, 2),
                 ngay_ket_thuc = null
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
+            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
             /* Hết phần dữ liệu tính lương */
 
             /* Phần dữ liệu lương cơ bản */
@@ -850,42 +835,38 @@
             context.hang_so.AddOrUpdate(hang_so);
             /* Hết phần dữ liệu tính lương */
 
-            tinhLuong = new TinhLuong()
+            /*Lịch sử ngạch*/
+            LichSuNgach lichSuNgach = new LichSuNgach()
             {
-                id = 2,
+                id = 1,
                 nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(21),
                 he_so_luong = context.he_so_luong.Find(37),
-                ngay_bat_dau = new DateTime(2013, 4, 1),
-                ngay_ket_thuc = new DateTime(2014, 9, 2)
+                ngay_bat_dau = new DateTime(2013, 9, 5),
+                ngay_ket_thuc = new DateTime(2015, 9, 2)
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
-            tinhLuong = new TinhLuong()
+            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
+            
+            lichSuNgach = new LichSuNgach()
             {
                 id = 2,
                 nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(20),
-                he_so_luong = context.he_so_luong.Find(37),
-                ngay_bat_dau = new DateTime(2014, 9, 3),
-                ngay_ket_thuc = new DateTime(2015, 10, 7)
+                he_so_luong = context.he_so_luong.Find(38),
+                ngay_bat_dau = new DateTime(2015, 9, 3),
+                ngay_ket_thuc = new DateTime(2016, 10, 7)
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
-            tinhLuong = new TinhLuong()
+            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
+            lichSuNgach = new LichSuNgach()
             {
-                id = 2,
+                id = 3,
                 nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(19),
                 he_so_luong = context.he_so_luong.Find(25),
                 ngay_bat_dau = new DateTime(2015, 10, 8),
                 ngay_ket_thuc = null
 
             };
-            context.tinh_luong.AddOrUpdate(tinhLuong);
+            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
 
             base.Seed(context);
         }
