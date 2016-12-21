@@ -44,11 +44,20 @@ namespace Qly_NVien_Luong_Form.EntityForm
         /*Thêm dữ liệu*/
         private void onBtnAdd_Submit(object sender, EventArgs e)
         {
-            var selectedIndex = tblData.CurrentCell.RowIndex;
+            int selectedIndex;
+            try
+            {
+               selectedIndex = tblData.CurrentCell.RowIndex;
+            } catch(NullReferenceException ex)
+            {
+                selectedIndex = -1;
+            }
+
             Create form = new Create();
             form.ShowDialog();
             loadDataToTable();
-            tblData.Rows[selectedIndex].Selected = true;
+            
+            if(selectedIndex != -1) tblData.Rows[selectedIndex].Selected = true;
         }
 
         /*Xem chi tiết dữ liệu*/
@@ -99,9 +108,9 @@ namespace Qly_NVien_Luong_Form.EntityForm
         //Format table
         private void tblData_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(this.tblData.Columns[e.ColumnIndex].Name == "gioiTinh")
+            if (this.tblData.Columns[e.ColumnIndex].Name == "gioiTinh")
             {
-                if(e.Value != null)
+                if (e.Value != null)
                 {
                     var temp = (bool)e.Value;
                     if (temp == false)
@@ -110,6 +119,8 @@ namespace Qly_NVien_Luong_Form.EntityForm
                         e.Value = "Nữ";
                 }
             }
+            else if (this.tblData.Columns[e.ColumnIndex].Name == "ngaySinh")
+                e.Value = ((DateTime)e.Value).ToString("dd/MM/yyyy");
         }
 
         //Click lên nút trên dòng dữ liệu

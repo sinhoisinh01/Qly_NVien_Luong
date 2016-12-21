@@ -54,14 +54,13 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label14 = new System.Windows.Forms.Label();
             this.tabCongTac = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpaChucVu = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tblLuong = new System.Windows.Forms.DataGridView();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -74,19 +73,27 @@
             this.dteDenNgay = new System.Windows.Forms.DateTimePicker();
             this.btnLoc = new System.Windows.Forms.Button();
             this.btnMacDinh = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpaNgach = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dteLichSuNgachNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dteLichSuNgachNgayKetThuc = new System.Windows.Forms.DateTimePicker();
+            this.btnLichSuNgachLoc = new System.Windows.Forms.Button();
+            this.btnLichSuNgachMacDinh = new System.Windows.Forms.Button();
+            this.tblLichSuNgach = new System.Windows.Forms.DataGridView();
+            this.clmLichSuNgachId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachNgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachNgach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachHeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLichSuNgachVuotKhung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLichSuNgachThem = new System.Windows.Forms.Button();
+            this.btnLichSuNgachSua = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,15 +101,15 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabCongTac.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpaChucVu.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLuong)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpaNgach.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLichSuNgach)).BeginInit();
             this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -427,25 +434,25 @@
             this.tabCongTac.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabCongTac.Controls.Add(this.tabPage1);
-            this.tabCongTac.Controls.Add(this.tabPage2);
+            this.tabCongTac.Controls.Add(this.tpaChucVu);
+            this.tabCongTac.Controls.Add(this.tpaNgach);
             this.tabCongTac.Location = new System.Drawing.Point(3, 24);
             this.tabCongTac.Name = "tabCongTac";
             this.tabCongTac.SelectedIndex = 0;
             this.tabCongTac.Size = new System.Drawing.Size(765, 598);
             this.tabCongTac.TabIndex = 3;
             // 
-            // tabPage1
+            // tpaChucVu
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(757, 572);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Công tác";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpaChucVu.Controls.Add(this.tableLayoutPanel3);
+            this.tpaChucVu.Location = new System.Drawing.Point(4, 22);
+            this.tpaChucVu.Margin = new System.Windows.Forms.Padding(0);
+            this.tpaChucVu.Name = "tpaChucVu";
+            this.tpaChucVu.Padding = new System.Windows.Forms.Padding(3);
+            this.tpaChucVu.Size = new System.Drawing.Size(757, 572);
+            this.tpaChucVu.TabIndex = 0;
+            this.tpaChucVu.Text = "Công tác";
+            this.tpaChucVu.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -483,7 +490,6 @@
             this.clmNgayBatDau,
             this.clmNgayKetThuc,
             this.clmChucVu,
-            this.clmHeSoLuong,
             this.clmDonVi,
             this.clmNhanVien});
             this.tblLuong.Location = new System.Drawing.Point(0, 30);
@@ -525,13 +531,6 @@
             this.clmChucVu.HeaderText = "Chức vụ";
             this.clmChucVu.Name = "clmChucVu";
             this.clmChucVu.ReadOnly = true;
-            // 
-            // clmHeSoLuong
-            // 
-            this.clmHeSoLuong.DataPropertyName = "he_so_luong";
-            this.clmHeSoLuong.HeaderText = "Hệ số lương";
-            this.clmHeSoLuong.Name = "clmHeSoLuong";
-            this.clmHeSoLuong.ReadOnly = true;
             // 
             // clmDonVi
             // 
@@ -662,16 +661,16 @@
             this.btnMacDinh.Visible = false;
             this.btnMacDinh.Click += new System.EventHandler(this.btnMacDinhSubmited);
             // 
-            // tabPage2
+            // tpaNgach
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(757, 572);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ngạch";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpaNgach.Controls.Add(this.tableLayoutPanel4);
+            this.tpaNgach.Location = new System.Drawing.Point(4, 22);
+            this.tpaNgach.Name = "tpaNgach";
+            this.tpaNgach.Padding = new System.Windows.Forms.Padding(3);
+            this.tpaNgach.Size = new System.Drawing.Size(757, 572);
+            this.tpaNgach.TabIndex = 1;
+            this.tpaNgach.Text = "Ngạch";
+            this.tpaNgach.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -681,7 +680,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tblLichSuNgach, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel4, 0, 2);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -699,11 +698,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.Controls.Add(this.label15);
-            this.flowLayoutPanel3.Controls.Add(this.dateTimePicker1);
+            this.flowLayoutPanel3.Controls.Add(this.dteLichSuNgachNgayBatDau);
             this.flowLayoutPanel3.Controls.Add(this.label16);
-            this.flowLayoutPanel3.Controls.Add(this.dateTimePicker2);
-            this.flowLayoutPanel3.Controls.Add(this.button3);
-            this.flowLayoutPanel3.Controls.Add(this.button4);
+            this.flowLayoutPanel3.Controls.Add(this.dteLichSuNgachNgayKetThuc);
+            this.flowLayoutPanel3.Controls.Add(this.btnLichSuNgachLoc);
+            this.flowLayoutPanel3.Controls.Add(this.btnLichSuNgachMacDinh);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -721,13 +720,13 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Từ";
             // 
-            // dateTimePicker1
+            // dteLichSuNgachNgayBatDau
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Location = new System.Drawing.Point(31, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dteLichSuNgachNgayBatDau.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dteLichSuNgachNgayBatDau.Location = new System.Drawing.Point(31, 4);
+            this.dteLichSuNgachNgayBatDau.Name = "dteLichSuNgachNgayBatDau";
+            this.dteLichSuNgachNgayBatDau.Size = new System.Drawing.Size(150, 20);
+            this.dteLichSuNgachNgayBatDau.TabIndex = 1;
             // 
             // label16
             // 
@@ -740,79 +739,159 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Đến";
             // 
-            // dateTimePicker2
+            // dteLichSuNgachNgayKetThuc
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker2.Location = new System.Drawing.Point(223, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(150, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dteLichSuNgachNgayKetThuc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dteLichSuNgachNgayKetThuc.Location = new System.Drawing.Point(223, 4);
+            this.dteLichSuNgachNgayKetThuc.Name = "dteLichSuNgachNgayKetThuc";
+            this.dteLichSuNgachNgayKetThuc.Size = new System.Drawing.Size(150, 20);
+            this.dteLichSuNgachNgayKetThuc.TabIndex = 3;
             // 
-            // button3
+            // btnLichSuNgachLoc
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button3.Location = new System.Drawing.Point(379, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Lọc";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachLoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLichSuNgachLoc.Location = new System.Drawing.Point(379, 3);
+            this.btnLichSuNgachLoc.Name = "btnLichSuNgachLoc";
+            this.btnLichSuNgachLoc.Size = new System.Drawing.Size(75, 23);
+            this.btnLichSuNgachLoc.TabIndex = 4;
+            this.btnLichSuNgachLoc.Text = "Lọc";
+            this.btnLichSuNgachLoc.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachLoc.Click += new System.EventHandler(this.btnLichSuNgachLoc_Click);
             // 
-            // button4
+            // btnLichSuNgachMacDinh
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button4.Location = new System.Drawing.Point(460, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Mặc định";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachMacDinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLichSuNgachMacDinh.Location = new System.Drawing.Point(460, 3);
+            this.btnLichSuNgachMacDinh.Name = "btnLichSuNgachMacDinh";
+            this.btnLichSuNgachMacDinh.Size = new System.Drawing.Size(75, 23);
+            this.btnLichSuNgachMacDinh.TabIndex = 5;
+            this.btnLichSuNgachMacDinh.Text = "Mặc định";
+            this.btnLichSuNgachMacDinh.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachMacDinh.Visible = false;
+            this.btnLichSuNgachMacDinh.Click += new System.EventHandler(this.btnLichSuNgachMacDinh_Click);
             // 
-            // dataGridView1
+            // tblLichSuNgach
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tblLichSuNgach.AllowUserToAddRows = false;
+            this.tblLichSuNgach.AllowUserToDeleteRows = false;
+            this.tblLichSuNgach.AllowUserToResizeRows = false;
+            this.tblLichSuNgach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 30);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(754, 511);
-            this.dataGridView1.TabIndex = 1;
+            this.tblLichSuNgach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblLichSuNgach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tblLichSuNgach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmLichSuNgachId,
+            this.clmLichSuNgachNhanVien,
+            this.clmLichSuNgachNgayBatDau,
+            this.clmLichSuNgachNgayKetThuc,
+            this.clmLichSuNgachNgach,
+            this.clmLichSuNgachBac,
+            this.clmLichSuNgachHeSoLuong,
+            this.clmLichSuNgachVuotKhung});
+            this.tblLichSuNgach.Location = new System.Drawing.Point(0, 30);
+            this.tblLichSuNgach.Margin = new System.Windows.Forms.Padding(0);
+            this.tblLichSuNgach.MultiSelect = false;
+            this.tblLichSuNgach.Name = "tblLichSuNgach";
+            this.tblLichSuNgach.ReadOnly = true;
+            this.tblLichSuNgach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tblLichSuNgach.Size = new System.Drawing.Size(754, 511);
+            this.tblLichSuNgach.TabIndex = 1;
+            this.tblLichSuNgach.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLichSuNgach_CellFormatting);
+            // 
+            // clmLichSuNgachId
+            // 
+            this.clmLichSuNgachId.DataPropertyName = "id";
+            this.clmLichSuNgachId.HeaderText = "ID";
+            this.clmLichSuNgachId.Name = "clmLichSuNgachId";
+            this.clmLichSuNgachId.ReadOnly = true;
+            this.clmLichSuNgachId.Visible = false;
+            // 
+            // clmLichSuNgachNhanVien
+            // 
+            this.clmLichSuNgachNhanVien.DataPropertyName = "nhan_vien";
+            this.clmLichSuNgachNhanVien.HeaderText = "Nhân viên";
+            this.clmLichSuNgachNhanVien.Name = "clmLichSuNgachNhanVien";
+            this.clmLichSuNgachNhanVien.ReadOnly = true;
+            this.clmLichSuNgachNhanVien.Visible = false;
+            // 
+            // clmLichSuNgachNgayBatDau
+            // 
+            this.clmLichSuNgachNgayBatDau.DataPropertyName = "ngay_bat_dau";
+            this.clmLichSuNgachNgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.clmLichSuNgachNgayBatDau.Name = "clmLichSuNgachNgayBatDau";
+            this.clmLichSuNgachNgayBatDau.ReadOnly = true;
+            // 
+            // clmLichSuNgachNgayKetThuc
+            // 
+            this.clmLichSuNgachNgayKetThuc.DataPropertyName = "ngay_ket_thuc";
+            this.clmLichSuNgachNgayKetThuc.HeaderText = "Ngày kết thúc";
+            this.clmLichSuNgachNgayKetThuc.Name = "clmLichSuNgachNgayKetThuc";
+            this.clmLichSuNgachNgayKetThuc.ReadOnly = true;
+            // 
+            // clmLichSuNgachNgach
+            // 
+            this.clmLichSuNgachNgach.DataPropertyName = "he_so_luong";
+            this.clmLichSuNgachNgach.HeaderText = "Tên ngạch";
+            this.clmLichSuNgachNgach.Name = "clmLichSuNgachNgach";
+            this.clmLichSuNgachNgach.ReadOnly = true;
+            // 
+            // clmLichSuNgachBac
+            // 
+            this.clmLichSuNgachBac.DataPropertyName = "he_so_luong";
+            this.clmLichSuNgachBac.HeaderText = "Bậc";
+            this.clmLichSuNgachBac.Name = "clmLichSuNgachBac";
+            this.clmLichSuNgachBac.ReadOnly = true;
+            // 
+            // clmLichSuNgachHeSoLuong
+            // 
+            this.clmLichSuNgachHeSoLuong.DataPropertyName = "he_so_luong";
+            this.clmLichSuNgachHeSoLuong.HeaderText = "Hệ số lương";
+            this.clmLichSuNgachHeSoLuong.Name = "clmLichSuNgachHeSoLuong";
+            this.clmLichSuNgachHeSoLuong.ReadOnly = true;
+            // 
+            // clmLichSuNgachVuotKhung
+            // 
+            this.clmLichSuNgachVuotKhung.DataPropertyName = "he_so_luong";
+            this.clmLichSuNgachVuotKhung.HeaderText = "Vượt khung";
+            this.clmLichSuNgachVuotKhung.Name = "clmLichSuNgachVuotKhung";
+            this.clmLichSuNgachVuotKhung.ReadOnly = true;
             // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel4.Controls.Add(this.button1);
-            this.flowLayoutPanel4.Controls.Add(this.button2);
+            this.flowLayoutPanel4.Controls.Add(this.btnLichSuNgachThem);
+            this.flowLayoutPanel4.Controls.Add(this.btnLichSuNgachSua);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 541);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(754, 30);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
-            // button1
+            // btnLichSuNgachThem
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.Location = new System.Drawing.Point(0, 3);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachThem.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLichSuNgachThem.Location = new System.Drawing.Point(0, 3);
+            this.btnLichSuNgachThem.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnLichSuNgachThem.Name = "btnLichSuNgachThem";
+            this.btnLichSuNgachThem.Size = new System.Drawing.Size(75, 23);
+            this.btnLichSuNgachThem.TabIndex = 0;
+            this.btnLichSuNgachThem.Text = "Thêm";
+            this.btnLichSuNgachThem.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachThem.Click += new System.EventHandler(this.btnLichSuNgachThem_Click);
             // 
-            // button2
+            // btnLichSuNgachSua
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.Location = new System.Drawing.Point(81, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachSua.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnLichSuNgachSua.Location = new System.Drawing.Point(81, 3);
+            this.btnLichSuNgachSua.Name = "btnLichSuNgachSua";
+            this.btnLichSuNgachSua.Size = new System.Drawing.Size(75, 23);
+            this.btnLichSuNgachSua.TabIndex = 1;
+            this.btnLichSuNgachSua.Text = "Sửa";
+            this.btnLichSuNgachSua.UseVisualStyleBackColor = true;
+            this.btnLichSuNgachSua.Click += new System.EventHandler(this.btnLichSuNgachSua_Click);
             // 
             // Detail
             // 
@@ -834,18 +913,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabCongTac.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tpaChucVu.ResumeLayout(false);
+            this.tpaChucVu.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblLuong)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tpaNgach.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblLichSuNgach)).EndInit();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -889,28 +968,35 @@
         private System.Windows.Forms.Label lblHo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpaChucVu;
+        private System.Windows.Forms.TabPage tpaNgach;
         private System.Windows.Forms.Label label14;
         protected System.Windows.Forms.TabControl tabCongTac;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNgayBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNgayKetThuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmHeSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNhanVien;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        protected System.Windows.Forms.Button btnLichSuNgachLoc;
+        protected System.Windows.Forms.Button btnLichSuNgachMacDinh;
+        protected System.Windows.Forms.DateTimePicker dteLichSuNgachNgayBatDau;
+        protected System.Windows.Forms.DateTimePicker dteLichSuNgachNgayKetThuc;
+        protected System.Windows.Forms.Button btnLichSuNgachThem;
+        protected System.Windows.Forms.Button btnLichSuNgachSua;
+        protected System.Windows.Forms.DataGridView tblLichSuNgach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachNgayBatDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachNgayKetThuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachNgach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachBac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachHeSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLichSuNgachVuotKhung;
     }
 }

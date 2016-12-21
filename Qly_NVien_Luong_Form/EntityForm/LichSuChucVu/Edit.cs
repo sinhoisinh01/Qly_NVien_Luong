@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using Qly_NVien_Luong_Form.EntityForm;
 using Qly_Luong_NVien_Service;
 
-namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
+namespace Qly_NVien_Luong_Form.EntityForm.LichSuChucVu
 {
-    public partial class Edit : EntityForm.TinhLuong.Criteria
+    public partial class Edit : EntityForm.LichSuChucVu.Criteria
     {
 
         public Edit(object id):base()
         {
             //Query dữ liệu lên
-            base.tinhLuong = dbContext.lich_su_chuc_vu.Find((int) id);
+            base.lichSuChucVu = dbContext.lich_su_chuc_vu.Find((int) id);
 
             //Đưa dữ liệu query vào form
             setDataToForm();
@@ -26,16 +26,16 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 
         private void setDataToForm()
         {
-            this.cbxChucVu.SelectedValue = base.tinhLuong.chuc_vu.id;
+            this.cbxChucVu.SelectedValue = base.lichSuChucVu.chuc_vu.id;
             // Changed
             //this.cbxNgach.SelectedValue = base.tinhLuong.he_so_luong.ngach.id;
-            this.cbxDonVi.SelectedValue = base.tinhLuong.don_vi.id;
+            this.cbxDonVi.SelectedValue = base.lichSuChucVu.don_vi.id;
             // Changed
             //this.cbxHeSoLuong.SelectedValue = base.tinhLuong.he_so_luong.id;
-            if (base.tinhLuong.ngay_ket_thuc != null)
-                this.dteDenNgay.Value = base.tinhLuong.ngay_ket_thuc.Value;
+            if (base.lichSuChucVu.ngay_ket_thuc != null)
+                this.dteDenNgay.Value = base.lichSuChucVu.ngay_ket_thuc.Value;
             else chbLamHienTai.Checked = true;
-            this.dteTuNgay.Value = base.tinhLuong.ngay_bat_dau;
+            this.dteTuNgay.Value = base.lichSuChucVu.ngay_bat_dau;
         }
 
         /*Override lại method cha*/
@@ -44,17 +44,17 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             base.onSubmit(sender, e);
 
             /*Thêm vào cơ sở dữ liệu*/
-            if (base.tinhLuong != null)
+            if (base.lichSuChucVu != null)
             {
                 try
                 {
-                    base.dbContext.Entry(base.tinhLuong).State = System.Data.Entity.EntityState.Modified;
+                    base.dbContext.Entry(base.lichSuChucVu).State = System.Data.Entity.EntityState.Modified;
                     base.dbContext.SaveChanges();
                 } catch(Exception ex)
                 {
                     Console.WriteLine("this block");
                 }
-                System.Windows.Forms.MessageBox.Show("Sửa công tác thành công!");
+                System.Windows.Forms.MessageBox.Show("Sửa lịch sử chức vụ thành công!");
                 this.Close();
             }
         }

@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
 using Qly_Luong_NVien_Service;
 
-namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
+namespace Qly_NVien_Luong_Form.EntityForm.LichSuChucVu
 {
     public partial class Criteria : Form
     {
         protected NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
 
-        protected Qly_Luong_NVien_Model.LichSuChucVu tinhLuong = null;
+        protected Qly_Luong_NVien_Model.LichSuChucVu lichSuChucVu = null;
         protected Qly_Luong_NVien_Model.NhanVien nhanVien = null;
 
         public Criteria(Qly_Luong_NVien_Model.NhanVien nhanVien)
@@ -39,47 +39,65 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             cbxChucVu.ValueMember = "id";
             cbxChucVu.DisplayMember = "ten_chuc_vu";
 
-            IList<HeSoLuong> heSoLuongs = dbContext.he_so_luong.ToList();
-            cbxHeSoLuong.DataSource = heSoLuongs;
-            cbxHeSoLuong.ValueMember = "id";
-            cbxHeSoLuong.DisplayMember = "he_so";
-
             IList<DonVi> donVis = dbContext.don_vi.ToList();
             cbxDonVi.DataSource = donVis;
             cbxDonVi.ValueMember = "id";
             cbxDonVi.DisplayMember = "ten_goi";
-
-            IList<Ngach> ngachs = dbContext.ngach.ToList();
-            cbxNgach.DataSource = ngachs;
-            cbxNgach.ValueMember = "id";
-            cbxNgach.DisplayMember = "ten_ngach";
         }
 
         //Binding dữ liệu vào đối tượng
         private void bindingData()
         {
-            if (tinhLuong == null)
-                tinhLuong = new Qly_Luong_NVien_Model.LichSuChucVu();
-            this.tinhLuong.chuc_vu = (ChucVu)this.cbxChucVu.SelectedItem;
-            this.tinhLuong.don_vi = (DonVi)this.cbxDonVi.SelectedItem;
+            if (lichSuChucVu == null)
+                lichSuChucVu = new Qly_Luong_NVien_Model.LichSuChucVu();
+            this.lichSuChucVu.chuc_vu = (ChucVu)this.cbxChucVu.SelectedItem;
+            this.lichSuChucVu.don_vi = (DonVi)this.cbxDonVi.SelectedItem;
             // Changed
-            //this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
-            this.tinhLuong.ngay_bat_dau = this.dteTuNgay.Value.Date;
+            //this.LichSuChucVu.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
+            this.lichSuChucVu.ngay_bat_dau = this.dteTuNgay.Value.Date;
             if (chbLamHienTai.Checked)
-                this.tinhLuong.ngay_ket_thuc = null;
+                this.lichSuChucVu.ngay_ket_thuc = null;
             else
-                this.tinhLuong.ngay_ket_thuc = this.dteDenNgay.Value.Date;
-            this.tinhLuong.nhan_vien = this.nhanVien;
+            {                
+                this.lichSuChucVu.ngay_ket_thuc = this.dteDenNgay.Value.Date;
+                if (this.lichSuChucVu.ngay_ket_thuc.Value.Date == DateTime.Now.Date)
+                    this.lichSuChucVu.ngay_ket_thuc = null;
+            }
+            this.lichSuChucVu.nhan_vien = this.nhanVien;
         }
 
         /*Validate dữ liệu*/
         private void validateData()
         {
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
-            if (this.tinhLuong.don_vi == null)
-                this.tinhLuong = null;
-            else if (this.tinhLuong.chuc_vu == null)
-                this.tinhLuong = null;
+            if (this.lichSuChucVu.don_vi == null) {
+                this.lichSuChucVu = null;
+                return;
+            } else if (this.lichSuChucVu.chuc_vu == null) {
+                this.lichSuChucVu = null;
+                return;
+            }
+
+            if(this.lichSuChucVu.ngay_bat_dau.Date >= DateTime.Now.Date)
+            {
+                this.lichSuChucVu = null;
+                return;
+            }
+
+            if(this.lichSuChucVu.ngay_ket_thuc != null)
+            {
+                if (this.lichSuChucVu.ngay_ket_thuc.Value.Date > DateTime.Now.Date)
+                {
+                    this.lichSuChucVu = null;
+                    return;
+                }
+            }
+
+            if(this.lichSuChucVu.ngay_bat_dau.Date >= (this.lichSuChucVu.ngay_ket_thuc == null? DateTime.Now.Date: this.lichSuChucVu.ngay_ket_thuc.Value.Date))
+            {
+                this.lichSuChucVu = null;
+                return;
+            }
         }
 
         //Đóng form
@@ -96,27 +114,6 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
 
             /*Validate dữ liệu*/
             validateData();
-        }
-
-        //Cách hiển thị
-        private void cbxHeSoLuong_Format(object sender, ListControlConvertEventArgs e)
-        {
-            var heSo = ((HeSoLuong)e.ListItem).he_so;
-            var ngach = ((HeSoLuong)e.ListItem).ngach.ten_ngach;
-            var bac = ((HeSoLuong)e.ListItem).bac_luong;
-            e.Value = "Bậc " + bac + " - Hệ số " + heSo;
-        }
-
-        //Thay đổi chọn ngạch
-        private void cbxNgach_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var ngach = cbxNgach.SelectedItem;
-            if (ngach != null)
-            {
-                var id = (ngach as Ngach).id;
-                var data = dbContext.he_so_luong.Where(hsl => hsl.ngach.id == id).ToList();
-                cbxHeSoLuong.DataSource = data;
-            }
         }
 
         //Bấm vào nút check
