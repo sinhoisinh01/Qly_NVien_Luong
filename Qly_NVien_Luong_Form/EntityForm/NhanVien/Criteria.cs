@@ -43,6 +43,46 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         protected void validateData()
         {
             //Nếu như dữ liệu thì set thuộc tính nhanVien về null để không thêm vào database
+            if(nhanVien.ma_so.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.ho.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.ten.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.dan_toc.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.dia_chi.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.cmnd.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if (nhanVien.hinh_anh.Trim() == "")
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if(nhanVien.ngay_sinh.Date >= DateTime.Now.Date)
+            {
+                this.nhanVien = null;
+                return;
+            }
         }
 
         public virtual void onSubmit(object sender, EventArgs e)

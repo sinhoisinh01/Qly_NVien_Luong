@@ -53,8 +53,8 @@
             {
                 id = 1,
                 ma_so = "3113410100",
-                ho = "Đoàn Phúc",
-                ten = "Sinh",
+                ho = "Đoàn",
+                ten = "Phúc Sinh",
                 gioi_tinh = false,
                 ngay_sinh = new DateTime(1995, 4, 1),
                 dan_toc = "Kinh",
@@ -69,8 +69,8 @@
             {
                 id = 2,
                 ma_so = "3113410024",
-                ho = "Hồng Phúc Thạnh",
-                ten = "Đông",
+                ho = "Hồng",
+                ten = "Phúc Thạnh Đông",
                 gioi_tinh = false,
                 ngay_sinh = new DateTime(1995, 4, 1),
                 dan_toc = "Kinh",
@@ -78,23 +78,6 @@
                 cmnd = "025316441",
                 hinh_anh = null,
                 ngay_vao_lam = new DateTime(2013, 9, 5),
-                ngay_nghi_lam = null
-            };
-            context.nhan_vien.AddOrUpdate(nv);
-
-            nv = new NhanVien()
-            {
-                id = 3,
-                ma_so = "3114410167",
-                ho = "Trần Hoàng Thảo",
-                ten = "Vi",
-                gioi_tinh = false,
-                ngay_sinh = new DateTime(1996, 10, 12),
-                dan_toc = "Kinh",
-                dia_chi = "262 Lê Văn Sỹ, P14, Q3",
-                cmnd = "025316441",
-                hinh_anh = null,
-                ngay_vao_lam = new DateTime(2014, 9, 5),
                 ngay_nghi_lam = null
             };
             context.nhan_vien.AddOrUpdate(nv);
@@ -770,60 +753,6 @@
             context.he_so_luong.AddOrUpdate(heSoLuong);
             /*------Hết phần dữ liệu Nhân Viên Bảo Vệ */
 
-            /* Phần dữ liệu tính lương */
-            // Khoa CNTT - Chức vụ: Không
-            LichSuChucVu lichSuChucVu = new LichSuChucVu()
-            {
-                id = 1,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(11),
-                ngay_bat_dau = new DateTime(2013, 4, 1),
-                ngay_ket_thuc = new DateTime(2016, 4, 1)
-
-            };
-            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu); 
-
-            // Khoa CNTT - Chức vụ: Phó bộ môn trực thuộc khoa
-            lichSuChucVu = new LichSuChucVu()
-            {
-                id = 2,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(1),
-                chuc_vu = context.chuc_vu.Find(10),
-                ngay_bat_dau = new DateTime(2016, 4, 2),
-                ngay_ket_thuc = null
-
-            };
-            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
-
-            // TTTH - Chức vụ: Không
-            lichSuChucVu = new LichSuChucVu()
-            {
-                id = 3,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(2),
-                chuc_vu = context.chuc_vu.Find(11),
-                ngay_bat_dau = new DateTime(2016, 5, 1),
-                ngay_ket_thuc = new DateTime(2016, 6, 1)
-
-            };
-            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
-
-            // TTTH - Chức vụ: Phó giám đốc trung tâm
-            lichSuChucVu = new LichSuChucVu()
-            {
-                id = 4,
-                nhan_vien = context.nhan_vien.Find(1),
-                don_vi = context.don_vi.Find(2),
-                chuc_vu = context.chuc_vu.Find(8),
-                ngay_bat_dau = new DateTime(2016, 6, 2),
-                ngay_ket_thuc = null
-
-            };
-            context.lich_su_chuc_vu.AddOrUpdate(lichSuChucVu);
-            /* Hết phần dữ liệu tính lương */
-
             /* Phần dữ liệu lương cơ bản */
             HangSo hang_so = new HangSo()
             {
@@ -834,39 +763,6 @@
             };
             context.hang_so.AddOrUpdate(hang_so);
             /* Hết phần dữ liệu tính lương */
-
-            /*Lịch sử ngạch*/
-            LichSuNgach lichSuNgach = new LichSuNgach()
-            {
-                id = 1,
-                nhan_vien = context.nhan_vien.Find(1),
-                he_so_luong = context.he_so_luong.Find(37),
-                ngay_bat_dau = new DateTime(2013, 9, 5),
-                ngay_ket_thuc = new DateTime(2015, 9, 2)
-
-            };
-            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
-            
-            lichSuNgach = new LichSuNgach()
-            {
-                id = 2,
-                nhan_vien = context.nhan_vien.Find(1),
-                he_so_luong = context.he_so_luong.Find(38),
-                ngay_bat_dau = new DateTime(2015, 9, 3),
-                ngay_ket_thuc = new DateTime(2016, 10, 7)
-
-            };
-            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
-            lichSuNgach = new LichSuNgach()
-            {
-                id = 3,
-                nhan_vien = context.nhan_vien.Find(1),
-                he_so_luong = context.he_so_luong.Find(25),
-                ngay_bat_dau = new DateTime(2015, 10, 8),
-                ngay_ket_thuc = null
-
-            };
-            context.lich_su_ngach.AddOrUpdate(lichSuNgach);
 
             base.Seed(context);
         }
