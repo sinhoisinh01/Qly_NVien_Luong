@@ -7,13 +7,13 @@ namespace Qly_Luong_NVien_Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UpdateSeeder : IMigrationMetadata
+    public sealed partial class AddDataLichSu : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateSeeder));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDataLichSu));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612100236441_UpdateSeeder"; }
+            get { return "201612201656244_AddDataLichSu"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,13 +7,13 @@ namespace Qly_Luong_NVien_Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class EditTableHangSo : IMigrationMetadata
+    public sealed partial class AddDataLichSu1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EditTableHangSo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDataLichSu1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611220550463_EditTableHangSo"; }
+            get { return "201612201702439_AddDataLichSu1"; }
         }
         
         string IMigrationMetadata.Source

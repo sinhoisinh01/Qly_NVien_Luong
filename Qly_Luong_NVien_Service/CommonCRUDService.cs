@@ -44,8 +44,12 @@ namespace Qly_Luong_NVien_Service
                 case "NhanVien":
                     return dbContext.nhan_vien;
                     break;
-                case "TinhLuong":
-                    return dbContext.tinh_luong;
+                // Changed
+                case "LichSuChucVu":
+                    return dbContext.lich_su_chuc_vu;
+                    break;
+                case "LichSuNgach":
+                    return dbContext.lich_su_ngach;
                     break;
                 default:
                     throw new FormatException("CommonCRUDService không hỗ trợ! Hãy cài đặt thêm ở method detectClass()");

@@ -13,7 +13,7 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
     {
         public Create(Qly_Luong_NVien_Model.NhanVien nhanVien)
         {
-            base.tinhLuong = new Qly_Luong_NVien_Model.TinhLuong();
+            base.tinhLuong = new Qly_Luong_NVien_Model.LichSuChucVu();
             this.nhanVien = nhanVien;
             base.tinhLuong.nhan_vien = nhanVien;
             //Constructor này đã bị override
@@ -39,7 +39,8 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             if (base.tinhLuong != null)
             {
                 base.dbContext.nhan_vien.Attach(nhanVien);
-                base.dbContext.tinh_luong.Add(base.tinhLuong);
+                // Changed
+                //base.dbContext.tinh_luong.Add(base.tinhLuong);
                 dbContext.SaveChanges();
                 clearForm();
                 System.Windows.Forms.MessageBox.Show("Thêm công tác thành công!");

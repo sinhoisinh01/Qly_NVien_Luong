@@ -52,52 +52,39 @@
     <Compile Include="DonVi.cs" />
     <Compile Include="HangSo.cs" />
     <Compile Include="HeSoLuong.cs" />
-    <Compile Include="Migrations\201610220210527_InitMigration.cs" />
-    <Compile Include="Migrations\201610220210527_InitMigration.Designer.cs">
-      <DependentUpon>201610220210527_InitMigration.cs</DependentUpon>
+    <Compile Include="LichSuNgach.cs" />
+    <Compile Include="Migrations\201612201530228_Initial.cs" />
+    <Compile Include="Migrations\201612201530228_Initial.Designer.cs">
+      <DependentUpon>201612201530228_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611220533435_AddHangSoTable.cs" />
-    <Compile Include="Migrations\201611220533435_AddHangSoTable.Designer.cs">
-      <DependentUpon>201611220533435_AddHangSoTable.cs</DependentUpon>
+    <Compile Include="Migrations\201612201656244_AddDataLichSu.cs" />
+    <Compile Include="Migrations\201612201656244_AddDataLichSu.Designer.cs">
+      <DependentUpon>201612201656244_AddDataLichSu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611220550463_EditTableHangSo.cs" />
-    <Compile Include="Migrations\201611220550463_EditTableHangSo.Designer.cs">
-      <DependentUpon>201611220550463_EditTableHangSo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611230021100_AddNewSeed.cs" />
-    <Compile Include="Migrations\201611230021100_AddNewSeed.Designer.cs">
-      <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612100236441_UpdateSeeder.cs" />
-    <Compile Include="Migrations\201612100236441_UpdateSeeder.Designer.cs">
-      <DependentUpon>201612100236441_UpdateSeeder.cs</DependentUpon>
+    <Compile Include="Migrations\201612201702439_AddDataLichSu1.cs" />
+    <Compile Include="Migrations\201612201702439_AddDataLichSu1.Designer.cs">
+      <DependentUpon>201612201702439_AddDataLichSu1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ngach.cs" />
     <Compile Include="NhanVien.cs" />
     <Compile Include="NhanVienLuongDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TinhLuong.cs" />
+    <Compile Include="LichSuChucVu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610220210527_InitMigration.resx">
-      <DependentUpon>201610220210527_InitMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612201530228_Initial.resx">
+      <DependentUpon>201612201530228_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611220533435_AddHangSoTable.resx">
-      <DependentUpon>201611220533435_AddHangSoTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612201656244_AddDataLichSu.resx">
+      <DependentUpon>201612201656244_AddDataLichSu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611220550463_EditTableHangSo.resx">
-      <DependentUpon>201611220550463_EditTableHangSo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611230021100_AddNewSeed.resx">
-      <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612100236441_UpdateSeeder.resx">
-      <DependentUpon>201612100236441_UpdateSeeder.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612201702439_AddDataLichSu1.resx">
+      <DependentUpon>201612201702439_AddDataLichSu1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Qly_Luong_NVien_Service
 {
-    public class TinhLuongService : CommonCRUDService<TinhLuong, int>
+    public class TinhLuongService : CommonCRUDService<LichSuChucVu, int>
     {
         protected override Type assignedClass()
         {
-            return typeof(TinhLuong);
+            return typeof(LichSuChucVu);
         }
 
         //Tìm theo nhân viên
-        public ISet<TinhLuong> findByNhanVien(NhanVien nhanVien)
+        public ISet<LichSuChucVu> findByNhanVien(NhanVien nhanVien)
         {
-            ISet<TinhLuong> ketQua = new HashSet<TinhLuong>();
-            IList<TinhLuong> duLieu = new List<TinhLuong>(base.findAll().ToArray());
+            ISet<LichSuChucVu> ketQua = new HashSet<LichSuChucVu>();
+            IList<LichSuChucVu> duLieu = new List<LichSuChucVu>(base.findAll().ToArray());
             foreach (var d in duLieu)
                 if (nhanVien.id == d.id)
                     ketQua.Add(d);
@@ -26,10 +26,10 @@ namespace Qly_Luong_NVien_Service
         }
 
         //Tìm theo nhân viên và khoảng thời gian
-        public ISet<TinhLuong> findByDateRange(NhanVien nhanVien, DateTime from, DateTime to)
+        public ISet<LichSuChucVu> findByDateRange(NhanVien nhanVien, DateTime from, DateTime to)
         {
-            ISet<TinhLuong> ketQua = new HashSet<TinhLuong>();
-            IList<TinhLuong> duLieu = new List<TinhLuong>(base.findAll().ToArray());
+            ISet<LichSuChucVu> ketQua = new HashSet<LichSuChucVu>();
+            IList<LichSuChucVu> duLieu = new List<LichSuChucVu>(base.findAll().ToArray());
             foreach (var d in duLieu)
             {
                 if (nhanVien.id == d.id && d.ngay_bat_dau >= from && d.ngay_bat_dau <= to)

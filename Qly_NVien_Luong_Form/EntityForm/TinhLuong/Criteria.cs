@@ -16,7 +16,7 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
     {
         protected NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
 
-        protected Qly_Luong_NVien_Model.TinhLuong tinhLuong = null;
+        protected Qly_Luong_NVien_Model.LichSuChucVu tinhLuong = null;
         protected Qly_Luong_NVien_Model.NhanVien nhanVien = null;
 
         public Criteria(Qly_Luong_NVien_Model.NhanVien nhanVien)
@@ -59,10 +59,11 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
         private void bindingData()
         {
             if (tinhLuong == null)
-                tinhLuong = new Qly_Luong_NVien_Model.TinhLuong();
+                tinhLuong = new Qly_Luong_NVien_Model.LichSuChucVu();
             this.tinhLuong.chuc_vu = (ChucVu)this.cbxChucVu.SelectedItem;
             this.tinhLuong.don_vi = (DonVi)this.cbxDonVi.SelectedItem;
-            this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
+            // Changed
+            //this.tinhLuong.he_so_luong = (HeSoLuong)this.cbxHeSoLuong.SelectedItem;            
             this.tinhLuong.ngay_bat_dau = this.dteTuNgay.Value.Date;
             if (chbLamHienTai.Checked)
                 this.tinhLuong.ngay_ket_thuc = null;
