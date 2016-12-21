@@ -1,0 +1,107 @@
+﻿@model Qly_Luong_NVien_Model.NhanVien
+
+@{
+    ViewBag.Title = "SGU - Thông Tin Nhân Viên";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+<section id="portfolio" ng-controller="HomeController">
+    <div class="container">
+        <h2>Thông Tin Nhân Viên</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <center><h2>Thông tin cá nhân</h2></center>
+                <div class="thumbnail">
+                    <img src="~/Content/my-template/images/my-photos/icon-user-default.png" class="img-thumbnail" width="150" height="150" />
+                    <div class="caption">
+                        <table>
+                            <tr>
+                                <th>Mã số:</th>
+                                <td>@Model.ma_so</td>
+                            </tr>
+                            <tr>
+                                <th>Họ và tên:</th>
+                                <td>@Model.ho  @Model.ten</td>
+                            </tr>
+                            @if (Model.gioi_tinh)
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nữ</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nam</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th>Ngày sinh:</th>
+                                <td>@Model.ngay_sinh.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <th>Dân tộc:</th>
+                                <td>@Model.dan_toc</td>
+                            </tr>
+                            <tr>
+                                <th>Địa chỉ:</th>
+                                <td>@Model.dia_chi</td>
+                            </tr>
+                            <tr>
+                                <th>CMND:</th>
+                                <td>@Model.cmnd</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày vào làm:</th>
+                                <td>@Model.ngay_vao_lam.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            @if (@Model.ngay_nghi_lam != null)
+                            {
+                                <tr>
+                                    <th>Ngày nghỉ làm:</th>
+                                    <td>Model.ngay_nghi_lam.Date.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </table>
+                        <center>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                Lịch sử công tác
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                Lịch sử ngạch
+                            </button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="row center">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                Thời điểm tính lương (dd/mm/yyyy):
+                <div class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{dateFormat}}" ng-model="dt"
+                           is-open="popup1.opened" datepicker-options="dateOptions"
+                           ng-required="true" close-text="Close"
+                           placeholder="dd/mm/yyyy" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="tinhLuong()">Xem lương</button>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+    </div>
+</section>
+

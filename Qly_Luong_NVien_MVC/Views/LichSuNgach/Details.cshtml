@@ -1,0 +1,146 @@
+﻿@model IEnumerable<Qly_Luong_NVien_Model.LichSuNgach>
+
+@{
+    ViewBag.Title = "SGU - Lịch Sử Ngạch";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+    Qly_Luong_NVien_Model.NhanVien NhanVienInfo = Model.FirstOrDefault().nhan_vien;
+}
+
+<section id="portfolio" ng-controller="HomeController">
+    <div class="container">
+        <h2>Lịch Sử Ngạch</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <center><h2>Thông tin nhân viên</h2></center>
+                <div class="thumbnail">
+                    <img src="~/Content/my-template/images/my-photos/icon-user-default.png" class="img-thumbnail" width="150" height="150" />
+                    <div class="caption">
+                        <table>
+                            <tr>
+                                <th>Mã số:</th>
+                                <td>@NhanVienInfo.ma_so</td>
+                            </tr>
+                            <tr>
+                                <th>Họ và tên:</th>
+                                <td>@NhanVienInfo.ho  @NhanVienInfo.ten</td>
+                            </tr>
+                            @if (NhanVienInfo.gioi_tinh)
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nữ</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nam</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th>Ngày sinh:</th>
+                                <td>@NhanVienInfo.ngay_sinh.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <th>Dân tộc:</th>
+                                <td>@NhanVienInfo.dan_toc</td>
+                            </tr>
+                            <tr>
+                                <th>Địa chỉ:</th>
+                                <td>@NhanVienInfo.dia_chi</td>
+                            </tr>
+                            <tr>
+                                <th>CMND:</th>
+                                <td>@NhanVienInfo.cmnd</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày vào làm:</th>
+                                <td>@NhanVienInfo.ngay_vao_lam.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            @if (@NhanVienInfo.ngay_nghi_lam != null)
+                            {
+                                <tr>
+                                    <th>Ngày nghỉ làm:</th>
+                                    <td>Model.ngay_nghi_lam.Date.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th rowspan="2">
+                            STT
+                        </th>
+                        <th colspan="2">
+                            Thời điểm
+                        </th>
+                        <th rowspan="2">
+                            Ngạch
+                        </th>
+                        <th rowspan="2">
+                            Hệ số
+                        </th>
+                        <th rowspan="2">
+                            Vượt khung
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Từ</th>
+                        <th>Đến</th>
+                    </tr>
+                </thead>
+                @{ int index = 1; }
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @index
+                            </td>
+                            <td>
+                                @item.ngay_bat_dau.Date.ToString("dd/MM/yyyy")
+                            </td>
+                            @if (item.ngay_ket_thuc != null)
+                            {
+                                <td>
+                                    @item.ngay_ket_thuc
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    Hiện nay
+                                </td>
+                            }
+                            <td>
+                                @item.he_so_luong.ngach.ten_ngach bậc @item.he_so_luong.bac_luong
+                            </td>
+                            <td>
+                                @item.he_so_luong.he_so
+                            </td>
+                            <td>
+                                @item.he_so_luong.vuot_khung != null ? item.he_so_luong.vuot_khung : Không
+                            </td>
+                        </tr>
+                            index = index + 1;
+                    }
+                </tbody>
+            </table>
+        </div>
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+    </div>
+</section>
