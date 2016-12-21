@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201611230021100_AddNewSeed.Designer.cs">
       <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612100236441_UpdateSeeder.cs" />
+    <Compile Include="Migrations\201612100236441_UpdateSeeder.Designer.cs">
+      <DependentUpon>201612100236441_UpdateSeeder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Ngach.cs" />
     <Compile Include="NhanVien.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611230021100_AddNewSeed.resx">
       <DependentUpon>201611230021100_AddNewSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100236441_UpdateSeeder.resx">
+      <DependentUpon>201612100236441_UpdateSeeder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

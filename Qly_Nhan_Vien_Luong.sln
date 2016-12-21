@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_Luong_NVien_MVC", "Qly_Luong_NVien_MVC\Qly_Luong_NVien_MVC.csproj", "{5B572F30-3CDF-4396-9C93-5DA901504833}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLy_Luong_NVien_Form", "Qly_NVien_Luong_Form\QLy_Luong_NVien_Form.csproj", "{EF343683-9550-4100-85B5-D37400E08286}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qly_Luong_NVien_Service", "Qly_Luong_NVien_Service\Qly_Luong_NVien_Service.csproj", "{AF7F83E3-BF45-4536-A749-8361F11BC82D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectListView2012", "F:\Hoc\MoHinhPhanLop\Template\ObjectListViewDemo\ObjectListView\ObjectListView2012.csproj", "{18FEDA0C-D147-4286-B39A-01204808106A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +31,17 @@ Global
 		{EF343683-9550-4100-85B5-D37400E08286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF343683-9550-4100-85B5-D37400E08286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF343683-9550-4100-85B5-D37400E08286}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FEDA0C-D147-4286-B39A-01204808106A}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
 		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF7F83E3-BF45-4536-A749-8361F11BC82D}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> db763f8d61b4a269c6e4ba4d110ea72b9239fbfb
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
