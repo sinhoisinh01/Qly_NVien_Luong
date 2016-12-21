@@ -61,16 +61,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataCounter.cs" />
+    <Compile Include="EntityForm\LichSuNgach\Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\LichSuNgach\Criteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\LichSuNgach\Criteria.Designer.cs">
+      <DependentUpon>Criteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityForm\LichSuNgach\Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForm\LichSuNgach\Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityForm\LichSuNgach\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EntityForm\NhanVien\Create.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EntityForm\NhanVien\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Create.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Create.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Edit.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Edit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EntityForm\MainControl.cs">
@@ -91,16 +109,16 @@
     <Compile Include="EntityForm\NhanVien\Detail.Designer.cs">
       <DependentUpon>Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Criteria.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Criteria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Criteria.Designer.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Criteria.Designer.cs">
       <DependentUpon>Criteria.cs</DependentUpon>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Detail.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityForm\TinhLuong\Detail.Designer.cs">
+    <Compile Include="EntityForm\LichSuChucVu\Detail.Designer.cs">
       <DependentUpon>Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -111,6 +129,9 @@
     <Compile Include="Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EntityForm\LichSuNgach\Criteria.resx">
+      <DependentUpon>Criteria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntityForm\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,10 +141,10 @@
     <EmbeddedResource Include="EntityForm\NhanVien\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EntityForm\TinhLuong\Criteria.resx">
+    <EmbeddedResource Include="EntityForm\LichSuChucVu\Criteria.resx">
       <DependentUpon>Criteria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EntityForm\TinhLuong\Detail.resx">
+    <EmbeddedResource Include="EntityForm\LichSuChucVu\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

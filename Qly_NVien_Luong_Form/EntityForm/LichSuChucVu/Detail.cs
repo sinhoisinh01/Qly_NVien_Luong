@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Qly_Luong_NVien_Model;
 
-namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
+namespace Qly_NVien_Luong_Form.EntityForm.LichSuChucVu
 {
     public partial class Detail : Form
     {
+        private Qly_Luong_NVien_Model.NhanVienLuongDBContext dbContext = new NhanVienLuongDBContext();
         private Qly_Luong_NVien_Model.LichSuChucVu tinhLuong = null;
-        private Qly_Luong_NVien_Service.TinhLuongService tinhLuongService = new Qly_Luong_NVien_Service.TinhLuongService();
 
         public Detail(object id)
         {
-            tinhLuong = tinhLuongService.find((int) id);
+            tinhLuong = dbContext.lich_su_chuc_vu.Find((int) id);
             InitializeComponent();
             loadDataToForm();
         }
@@ -34,7 +34,6 @@ namespace Qly_NVien_Luong_Form.EntityForm.TinhLuong
             //if (tinhLuong.he_so_luong != null)
             //    lblHeSoLuong.Text = tinhLuong.he_so_luong.he_so + " / " + tinhLuong.he_so_luong.ngach.ten_ngach;
             //else
-                lblHeSoLuong.Text = "Không có";
             lblNgayBatDau.Text = tinhLuong.ngay_bat_dau.ToShortDateString();
             lblNgayKetThuc.Text = tinhLuong.ngay_ket_thuc != null ? tinhLuong.ngay_ket_thuc.Value.ToShortDateString() : "Không có";
         }
