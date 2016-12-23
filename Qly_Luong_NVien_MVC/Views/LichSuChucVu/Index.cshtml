@@ -1,0 +1,132 @@
+﻿@model Qly_Luong_NVien_Model.NhanVien
+
+@{
+    ViewBag.Title = "SGU - Lịch Sử Chức Vụ";
+    Layout = "~/Views/Shared/_MyLayoutPage.cshtml";
+}
+
+<section id="portfolio" ng-controller="LichSuChucVuController">
+    <div class="container">
+        <h2>Lịch Sử Chức Vụ</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <center><h2>Thông tin nhân viên</h2></center>
+                <div class="thumbnail">
+                    <img src="~/Content/my-template/images/my-photos/icon-user-default.png" class="img-thumbnail" width="150" height="150" />
+                    <div class="caption">
+                        <input type="hidden" ng-model="nhan_vien_id" ng-init="nhan_vien_id = @Model.id" />
+                        <table>
+                            <tr>
+                                <th>Mã số:</th>
+                                <td>@Model.ma_so</td>
+                            </tr>
+                            <tr>
+                                <th>Họ và tên:</th>
+                                <td>@Model.ho  @Model.ten</td>
+                            </tr>
+                            @if (Model.gioi_tinh)
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nữ</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th>Giới tính:</th>
+                                    <td>Nam</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th>Ngày sinh:</th>
+                                <td>@Model.ngay_sinh.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <th>Dân tộc:</th>
+                                <td>@Model.dan_toc</td>
+                            </tr>
+                            <tr>
+                                <th>Địa chỉ:</th>
+                                <td>@Model.dia_chi</td>
+                            </tr>
+                            <tr>
+                                <th>CMND:</th>
+                                <td>@Model.cmnd</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày vào làm:</th>
+                                <td>@Model.ngay_vao_lam.Date.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            @if (@Model.ngay_nghi_lam != null)
+                            {
+                                <tr>
+                                    <th>Ngày nghỉ làm:</th>
+                                    <td>Model.ngay_nghi_lam.Date.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Từ
+                        </th>
+                        <th>
+                            Đến
+                        </th>
+                        <th>
+                            Đơn vị
+                        </th>
+                        <th>
+                            Chức vụ
+                        </th>
+                        <th>
+                            Hệ số
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cv in chucVuTable">
+                        <td>
+                            {{$index+1}}
+                        </td>
+                        <td>
+                            {{cv.ngay_bat_dau | date:'dd/MM/y'}}
+                        </td>
+                        <td>
+                            {{cv.ngay_ket_thuc == null ? 'Hiện nay' : cv.ngay_ket_thuc | date:'dd/MM/y'}}
+                        </td>
+                        <td>
+                            {{cv.chuc_vu.ten_chuc_vu}}
+                        </td>
+                        <td>
+                            {{cv.he_so_luong.he_so}}
+                        </td>
+                        <td>
+                            {{cv.he_so_luong.vuot_khung != null ? cv.he_so_luong.vuot_khung : 'Không'}}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <p>
+            @Html.ActionLink("Trở về", "Index")
+        </p>
+    </div>
+</section>

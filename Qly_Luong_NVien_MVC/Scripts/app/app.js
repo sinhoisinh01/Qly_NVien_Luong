@@ -1,4 +1,5 @@
 ﻿angular.module('qly_nhan_vien_luong', ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+    .constant("baseURL", "http://localhost:65356/")
     .filter("myfilter", function () {
         return function (items, from, to) {
             var arrayToReturn = [];

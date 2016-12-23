@@ -14,19 +14,30 @@ namespace Qly_Luong_NVien_MVC.Controllers
     {
         private NhanVienLuongDBContext db = new NhanVienLuongDBContext();
 
-        // GET: /LichSuNgach/Details/5
-        public ActionResult Details(int? id)
+        // GET: /LichSuNgach/Index/id
+        public ActionResult Index(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ICollection<LichSuNgach> lichsungach = db.lich_su_ngach.Where(l => l.nhan_vien.id == id).ToList();
-            if (lichsungach == null)
+            NhanVien nhanvien = db.nhan_vien.Find(id);
+            if (nhanvien == null)
             {
                 return HttpNotFound();
             }
-            return View(lichsungach);
+            return View(nhanvien);
+        }
+
+        // GET: /LichSuNgach/getLichSuNgach/nhan_vien_id
+        public JsonResult getLichSuNgach(int? nhan_vien_id)
+        {
+            if (nhan_vien_id == null)
+            {
+                return null;
+            }
+            ICollection<LichSuNgach> lichsungach = db.lich_su_ngach.Where(l => l.nhan_vien.id == nhan_vien_id).ToList();
+            return Json(lichsungach, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

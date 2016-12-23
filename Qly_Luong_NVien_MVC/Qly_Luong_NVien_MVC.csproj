@@ -188,6 +188,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LichSuChucVuController.cs" />
     <Compile Include="Controllers\LichSuNgachController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -206,6 +207,7 @@
     <Content Include="Content\my-template\css\font-awesome.min.css" />
     <Content Include="Content\my-template\css\loading.css" />
     <Content Include="Content\my-template\css\main.css" />
+    <Content Include="Content\my-template\css\my-css.css" />
     <Content Include="Content\my-template\css\prettyPhoto.css" />
     <Content Include="Content\my-template\css\responsive.css" />
     <Content Include="Content\my-template\fonts\fontawesome-webfont.svg" />
@@ -317,6 +319,9 @@
     <Content Include="Content\my-template\images\slider\money.png" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\HomeController.js" />
+    <Content Include="Scripts\app\LichSu\LichSuChucVuController.js" />
+    <Content Include="Scripts\app\LichSu\LichSuNgachController.js" />
+    <Content Include="Scripts\app\NhanVien\NhanVienDetailsController.js" />
     <Content Include="Scripts\app\NhanVien\NhanVienIndexController.js" />
     <Content Include="Scripts\app\salaryTool.js" />
     <Content Include="Content\my-template\js\bootstrap.min.js" />
@@ -490,7 +495,6 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\dirPaginate\dirPaginate.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -1321,7 +1325,8 @@
     <Content Include="Views\NhanVien\Details.cshtml" />
     <Content Include="Views\NhanVien\Edit.cshtml" />
     <Content Include="Views\NhanVien\Index.cshtml" />
-    <Content Include="Views\LichSuNgach\Details.cshtml" />
+    <Content Include="Views\LichSuNgach\Index.cshtml" />
+    <Content Include="Views\LichSuChucVu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
