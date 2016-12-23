@@ -156,10 +156,10 @@
                 <tbody>
                     <tr ng-repeat="s in salaryObj.salaryTable">
                         <td>{{s.moment | date:'dd/MM/y'}}</td>
-                        <td>{{s.ngach.ngach.ten_ngach}} bậc {{s.ngach.bac_luong}}</td>
-                        <td>{{s.chuc_vu.ten_chuc_vu}}</td>
+                        <td>{{s.ngach.ngach.ten_ngach}} bậc {{s.ngach.bac_luong}} (HS: {{s.ngach.he_so}})</td>
+                        <td>{{s.chuc_vu.ten_chuc_vu}} (HS: {{s.chuc_vu.he_so_chuc_vu}})</td>
                         <td>{{s.chuc_vu.don_vi.ten_goi}}</td>
-                        <td>{{s.ngach.phu_cap == null ? 'Không' : s.ngach.phu_cap}}</td>
+                        <td>{{s.ngach.vuot_khung == null ? 'Không' : s.ngach.vuot_khung}}</td>
                         <td>{{s.luong_ngay | number:0}} VNĐ</td>
                     </tr>
                 </tbody>

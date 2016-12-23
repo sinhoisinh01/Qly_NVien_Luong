@@ -54,6 +54,7 @@ function getChucVuByExactlyDay(chucVuTable, day) {
     for (var i = 0; i < length; i++) {
         if (isRightHistory(chucVuTable[i], day)) {
             chuc_vu_max = chucVuTable[i].chuc_vu;
+            chuc_vu_max.don_vi = chucVuTable[i].don_vi;
             i = length;
         }
     }
@@ -107,7 +108,7 @@ function calculateSalary(ngachTable, chucVuTable, luong_co_ban, date) {
             salaryObj.totalSalary += luong;
         }
     }
-    salaryObj.totalSalary = Math.ceil(salaryObj.totalSalary);
+    salaryObj.totalSalary = (salaryObj.totalSalary);
     return salaryObj;
 }
 
