@@ -135,6 +135,9 @@
     <EmbeddedResource Include="EntityForm\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EntityForm\NhanVien\Create.resx">
+      <DependentUpon>Create.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntityForm\NhanVien\Criteria.resx">
       <DependentUpon>Criteria.cs</DependentUpon>
     </EmbeddedResource>
