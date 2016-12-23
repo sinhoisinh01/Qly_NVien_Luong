@@ -36,7 +36,7 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             nhanVien.hinh_anh = "none";
             nhanVien.ngay_vao_lam = dteNgayLam.Value;
             nhanVien.ngay_nghi_lam = null;
-            nhanVien.gioi_tinh = rdoNam.Checked;
+            nhanVien.gioi_tinh = !rdoNam.Checked;
         }
 
         /*Validate dữ liệu*/
