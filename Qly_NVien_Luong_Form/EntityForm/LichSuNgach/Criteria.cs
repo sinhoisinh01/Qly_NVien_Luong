@@ -148,12 +148,13 @@ namespace Qly_NVien_Luong_Form.EntityForm.LichSuNgach
             if(e.ListItem is HeSoLuong)
             {
                 var val = (HeSoLuong)e.Value;
+                /*
                 var vuotKhungStr = "";
                 if (val.vuot_khung == null)
                     vuotKhungStr = " / 0.0";
                 else
-                    vuotKhungStr = " / " + val.vuot_khung.Value;
-                e.Value = "Bậc " + val.bac_luong + " / Hệ số " + val.he_so + vuotKhungStr;     
+                    vuotKhungStr = " / " + val.vuot_khung.Value;*/
+                e.Value = "Bậc " + val.bac_luong /*+ " / Hệ số " + val.he_so + vuotKhungStr*/;     
             }
         }
     }

@@ -45,13 +45,26 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             base.texCMND.Text = "";
             base.texDanToc.Text = "";
             base.texDiaChi.Text = "";
-            base.texHinhAnh.Text = "";
+            //base.texHinhAnh.Text = "";
             base.texHo.Text = "";
             base.texMaSo.Text = "";
             base.texTen.Text = "";
             base.dteNgaySinh.Value = DateTime.Now;
             base.dteNgayLam.Value = DateTime.Now;
-            base.dteNgayNghi.Value = DateTime.Now;
+            //base.dteNgayNghi.Value = DateTime.Now;
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Create
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(284, 362);
+            this.Name = "Create";
+            this.ResumeLayout(false);
+
         }
     }
 }
