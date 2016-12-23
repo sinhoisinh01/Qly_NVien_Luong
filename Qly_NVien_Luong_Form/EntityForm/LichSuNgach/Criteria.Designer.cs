@@ -40,7 +40,6 @@
             this.chbLamHienTai = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,18 +57,16 @@
             this.tableLayoutPanel1.Controls.Add(this.cbxBac, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.cbxNgach, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.chbLamHienTai, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(302, 172);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(302, 153);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -110,7 +107,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 128);
+            this.label4.Location = new System.Drawing.Point(3, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 3;
@@ -137,7 +134,7 @@
             this.cbxBac.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbxBac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBac.FormattingEnabled = true;
-            this.cbxBac.Location = new System.Drawing.Point(117, 124);
+            this.cbxBac.Location = new System.Drawing.Point(117, 126);
             this.cbxBac.Name = "cbxBac";
             this.cbxBac.Size = new System.Drawing.Size(182, 21);
             this.cbxBac.TabIndex = 7;
@@ -169,7 +166,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(239, 187);
+            this.btnCancel.Location = new System.Drawing.Point(239, 168);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -179,7 +176,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(158, 187);
+            this.btnSubmit.Location = new System.Drawing.Point(158, 168);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 2;
@@ -187,20 +184,11 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.onSubmit);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Bậc / Hệ số / Vượt khung";
-            // 
             // Criteria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 215);
+            this.ClientSize = new System.Drawing.Size(323, 196);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -226,6 +214,5 @@
         private System.Windows.Forms.Label label4;
         protected System.Windows.Forms.ComboBox cbxBac;
         protected System.Windows.Forms.CheckBox chbLamHienTai;
-        private System.Windows.Forms.Label label5;
     }
 }

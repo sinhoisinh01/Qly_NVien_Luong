@@ -191,13 +191,13 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
         {
             this.lblMaSo.Text = nhanVien.ma_so;
             this.lblHo.Text = nhanVien.ho + " " + nhanVien.ten;
-            this.lblNgaySinh.Text = nhanVien.ngay_sinh.ToShortDateString();
+            this.lblNgaySinh.Text = nhanVien.ngay_sinh.ToString("dd/MM/yyyy");
             this.lblGioiTinh.Text = nhanVien.gioi_tinh == true? "Nữ": "Nam";            
             this.lblDanToc.Text = nhanVien.dan_toc;
             this.lblDiaChi.Text = nhanVien.dia_chi;
             this.lblCMND.Text = nhanVien.cmnd;
             //this.lblHinhAnh.Text = nhanVien.hinh_anh;
-            this.lblNgayLam.Text = nhanVien.ngay_vao_lam.ToShortDateString();
+            this.lblNgayLam.Text = nhanVien.ngay_vao_lam.ToString("dd/MM/yyyy");
             DateTime? ngayNghi = nhanVien.ngay_nghi_lam;
             //.lblNgayNghi.Text = ngayNghi != null? ngayNghi.Value.ToShortDateString(): "Không có";
         }
