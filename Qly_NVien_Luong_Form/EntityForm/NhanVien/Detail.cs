@@ -45,6 +45,23 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
 
             //Tải bảng công tác của nhân viên đó
             loadCongTac();
+
+            //Tải dữ liệu phụ
+            List<Ngach> ngachList = dbContext.ngach.ToList();
+            cbxNgach.ValueMember = "id";
+            cbxNgach.DisplayMember = "ten_ngach";
+            cbxNgach.DataSource = ngachList;
+
+            List<ChucVu> chucVuList = dbContext.chuc_vu.ToList();
+            cbxChucVu.ValueMember = "id";
+            cbxChucVu.DisplayMember = "ten_chuc_vu";
+            cbxChucVu.DataSource = chucVuList;
+
+            List<DonVi> donViList = dbContext.don_vi.ToList();
+            cbxDonVi.ValueMember = "id";
+            cbxDonVi.DisplayMember = "ten_goi";
+            cbxDonVi.DataSource = donViList;
+            
         }
 
         //Tải lịch sử chức vụ
@@ -77,13 +94,18 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             var fromDate = dteTuNgay.Value;
             var toDate = dteDenNgay.Value;
             // Changed
+            var chucVuId = (cbxChucVu.SelectedItem as ChucVu) != null? (cbxChucVu.SelectedItem as ChucVu).id: -1;
+            var donViId = (cbxDonVi.SelectedItem as DonVi) != null? (cbxDonVi.SelectedItem as DonVi).id: -1;
+
             IList<Qly_Luong_NVien_Model.LichSuChucVu> congTac = dbContext.lich_su_chuc_vu.Where(
-            tl =>
-            tl.nhan_vien.id == this.nhanVien.id &&
+                tl =>
+                tl.nhan_vien.id == this.nhanVien.id &&
                 DbFunctions.TruncateTime(tl.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
-                DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate)
+                DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate) &&
+                (chbLockChucVu.Checked == false? tl.chuc_vu.id == chucVuId: true) &&
+                (chbLockDonVi.Checked == false? tl.don_vi.id == donViId: true)
             ).ToList();
-            foreach(var e in congTac)
+            foreach (var e in congTac)
                 dbContext.Entry(e).Reload(); 
             var bindingList = new SortableBindingList<Qly_Luong_NVien_Model.LichSuChucVu>(congTac);
             var source = new BindingSource(bindingList, null);
@@ -96,11 +118,16 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             var fromDate = dteLichSuNgachNgayBatDau.Value;
             var toDate = dteLichSuNgachNgayKetThuc.Value;
             // Changed
+            var ngachId = (cbxNgach.SelectedItem as Ngach) != null ? (cbxNgach.SelectedItem as Ngach).id : -1;
+            var bacId = (cbxBac.SelectedItem as HeSoLuong) != null ? (cbxBac.SelectedItem as HeSoLuong).id : -1;
+
             IList<Qly_Luong_NVien_Model.LichSuNgach> ngachs = dbContext.lich_su_ngach.Where(
-            tl =>
-            tl.nhan_vien.id == this.nhanVien.id &&
-                DbFunctions.TruncateTime(tl.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
-                DbFunctions.TruncateTime(tl.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate)
+                n =>
+                n.nhan_vien.id == this.nhanVien.id &&
+                DbFunctions.TruncateTime(n.ngay_bat_dau) >= DbFunctions.TruncateTime(fromDate) &&
+                DbFunctions.TruncateTime(n.ngay_bat_dau) <= DbFunctions.TruncateTime(toDate) &&
+                (chbLockNgach.Checked == false ? n.he_so_luong.ngach.id == ngachId : true) &&
+                (chbLockBac.Checked == false ? n.he_so_luong.id == bacId : true)
             ).ToList();
             foreach (var e in ngachs)
                 dbContext.Entry(e).Reload();
@@ -321,6 +348,113 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             isLSNgachSearched = false;
             loadDuLieu();
             btnLichSuNgachMacDinh.Visible = false;
+        }
+
+        //Xóa lịch sử chức vụ
+        private void btnXoaLichSuChucVu_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa lịch sử chức vụ này không?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var id = tblLuong.SelectedRows[0].Cells[0].Value;
+                var lichSuChucVu = dbContext.lich_su_chuc_vu.Find((int)id);
+                if (lichSuChucVu != null)
+                {
+
+                    dbContext.lich_su_chuc_vu.Remove(lichSuChucVu);
+                    dbContext.SaveChanges();
+                    loadDuLieu();
+                }
+            }
+        }
+
+        //Xóa lịch sử ngạch
+        private void btnXoaLichSuNgach_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa lịch sử ngạch này không?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var id = tblLichSuNgach.SelectedRows[0].Cells[0].Value;
+                var lichSuNgach = dbContext.lich_su_ngach.Find((int)id);
+                if (lichSuNgach != null)
+                {
+
+                    dbContext.lich_su_ngach.Remove(lichSuNgach);
+                    dbContext.SaveChanges();
+                    loadDuLieu();
+                }
+            }
+        }
+
+        //Chọn ngạch khác
+        private void cbxNgach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ngach = (cbxNgach.SelectedItem as Ngach);
+            if (ngach != null)
+            {
+                var idNgach = ngach.id;
+                var bacList = dbContext.he_so_luong.Where(hsl => hsl.ngach.id == idNgach).ToList();
+                cbxBac.DataSource = bacList;
+            }
+        }
+
+        //cbxBac format
+        private void cbxBac_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (e.ListItem is HeSoLuong)
+            {
+                var val = (HeSoLuong)e.Value;
+                var vuotKhungStr = "";
+                if (val.vuot_khung == null)
+                    vuotKhungStr = " / 0.0";
+                else
+                    vuotKhungStr = " / " + val.vuot_khung.Value;
+                e.Value = "Bậc " + val.bac_luong + " / Hệ số " + val.he_so + vuotKhungStr;
+            }
+        }
+
+        //Khóa chức vụ
+        private void chbLockChucVu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbLockChucVu.Checked == true)
+                cbxChucVu.Enabled = false;
+            else
+                cbxChucVu.Enabled = true;
+        }
+
+        //Khóa đơn vị
+        private void chbLockDonVi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbLockDonVi.Checked == true)
+                cbxDonVi.Enabled = false;
+            else
+                cbxDonVi.Enabled = true;
+        }
+
+        //Khóa ngạch
+        private void chbLockNgach_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbLockNgach.Checked == true)
+            {
+                cbxNgach.Enabled = false;
+                chbLockBac.Enabled = false;
+                chbLockBac.Checked = true;
+            }
+            else
+            {
+                cbxNgach.Enabled = true;
+                chbLockBac.Enabled = true;
+                chbLockBac.Checked = false;
+            }
+        }
+
+        //Khóa bậc
+        private void chbLockBac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbLockBac.Checked == true)
+                cbxBac.Enabled = false;
+            else
+                cbxBac.Enabled = true;
         }
     }
 }
