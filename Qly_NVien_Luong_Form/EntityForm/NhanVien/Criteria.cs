@@ -33,9 +33,9 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             nhanVien.dan_toc = texDanToc.Text;
             nhanVien.dia_chi = texDiaChi.Text;
             nhanVien.cmnd = texCMND.Text;
-            nhanVien.hinh_anh = texHinhAnh.Text;
+            nhanVien.hinh_anh = "none";
             nhanVien.ngay_vao_lam = dteNgayLam.Value;
-            nhanVien.ngay_nghi_lam = dteNgayNghi.Value;
+            nhanVien.ngay_nghi_lam = null;
             nhanVien.gioi_tinh = rdoNam.Checked;
         }
 
@@ -73,12 +73,19 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
                 this.nhanVien = null;
                 return;
             }
+            /*
             if (nhanVien.hinh_anh.Trim() == "")
             {
                 this.nhanVien = null;
                 return;
             }
+            */
             if(nhanVien.ngay_sinh.Date >= DateTime.Now.Date)
+            {
+                this.nhanVien = null;
+                return;
+            }
+            if(nhanVien.ngay_vao_lam.Date >= DateTime.Now.Date || nhanVien.ngay_vao_lam.Date <= nhanVien.ngay_sinh.Date)
             {
                 this.nhanVien = null;
                 return;

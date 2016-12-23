@@ -196,10 +196,10 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             this.lblDanToc.Text = nhanVien.dan_toc;
             this.lblDiaChi.Text = nhanVien.dia_chi;
             this.lblCMND.Text = nhanVien.cmnd;
-            this.lblHinhAnh.Text = nhanVien.hinh_anh;
+            //this.lblHinhAnh.Text = nhanVien.hinh_anh;
             this.lblNgayLam.Text = nhanVien.ngay_vao_lam.ToShortDateString();
             DateTime? ngayNghi = nhanVien.ngay_nghi_lam;
-            this.lblNgayNghi.Text = ngayNghi != null? ngayNghi.Value.ToShortDateString(): "Không có";
+            //.lblNgayNghi.Text = ngayNghi != null? ngayNghi.Value.ToShortDateString(): "Không có";
         }
 
         //Nhấn vào nút thêm chuyển công tác

@@ -29,11 +29,11 @@ namespace Qly_NVien_Luong_Form.EntityForm.NhanVien
             base.texDanToc.Text = base.nhanVien.dan_toc;
             base.texCMND.Text = base.nhanVien.cmnd;
             base.texDiaChi.Text = base.nhanVien.dia_chi;
-            base.texHinhAnh.Text = base.nhanVien.hinh_anh;
+            //base.texHinhAnh.Text = base.nhanVien.hinh_anh;
             base.texTen.Text = base.nhanVien.ten;
             base.texHo.Text = base.nhanVien.ho;
             base.dteNgaySinh.Value = base.nhanVien.ngay_sinh;
-            base.dteNgayNghi.Value = base.nhanVien.ngay_nghi_lam != null? base.nhanVien.ngay_nghi_lam.Value: DateTime.Now;
+            //base.dteNgayNghi.Value = base.nhanVien.ngay_nghi_lam != null? base.nhanVien.ngay_nghi_lam.Value: DateTime.Now;
             base.dteNgayLam.Value = base.nhanVien.ngay_vao_lam;
             if (base.nhanVien.gioi_tinh == false)
             {
