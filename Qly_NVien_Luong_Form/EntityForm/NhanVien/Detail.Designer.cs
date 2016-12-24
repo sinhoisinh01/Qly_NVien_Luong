@@ -387,7 +387,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label14);
             this.splitContainer1.Panel2.Controls.Add(this.tabCongTac);
-            this.splitContainer1.Size = new System.Drawing.Size(990, 622);
+            this.splitContainer1.Size = new System.Drawing.Size(990, 358);
             this.splitContainer1.SplitterDistance = 218;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -411,7 +411,7 @@
             this.tabCongTac.Location = new System.Drawing.Point(3, 24);
             this.tabCongTac.Name = "tabCongTac";
             this.tabCongTac.SelectedIndex = 0;
-            this.tabCongTac.Size = new System.Drawing.Size(765, 598);
+            this.tabCongTac.Size = new System.Drawing.Size(765, 330);
             this.tabCongTac.TabIndex = 3;
             // 
             // tpaChucVu
@@ -421,7 +421,7 @@
             this.tpaChucVu.Margin = new System.Windows.Forms.Padding(0);
             this.tpaChucVu.Name = "tpaChucVu";
             this.tpaChucVu.Padding = new System.Windows.Forms.Padding(3);
-            this.tpaChucVu.Size = new System.Drawing.Size(757, 572);
+            this.tpaChucVu.Size = new System.Drawing.Size(757, 304);
             this.tpaChucVu.TabIndex = 0;
             this.tpaChucVu.Text = "Công tác";
             this.tpaChucVu.UseVisualStyleBackColor = true;
@@ -432,6 +432,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.tblLuong, 0, 2);
@@ -444,9 +445,9 @@
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 481F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(754, 571);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(754, 304);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tblLuong
@@ -459,6 +460,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tblLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblLuong.BackgroundColor = System.Drawing.Color.White;
             this.tblLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmId,
             this.clmNgayBatDau,
@@ -472,7 +474,7 @@
             this.tblLuong.Name = "tblLuong";
             this.tblLuong.ReadOnly = true;
             this.tblLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblLuong.Size = new System.Drawing.Size(754, 481);
+            this.tblLuong.Size = new System.Drawing.Size(754, 215);
             this.tblLuong.TabIndex = 1;
             this.tblLuong.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLuong_CellFormatting);
             this.tblLuong.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.viewDetail);
@@ -529,10 +531,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnThem);
             this.flowLayoutPanel2.Controls.Add(this.btnSua);
             this.flowLayoutPanel2.Controls.Add(this.btnXoaLichSuChucVu);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 541);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 275);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(754, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(754, 29);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // btnThem
@@ -692,7 +694,8 @@
             this.chbLockChucVu.Location = new System.Drawing.Point(200, 6);
             this.chbLockChucVu.Name = "chbLockChucVu";
             this.chbLockChucVu.Size = new System.Drawing.Size(15, 14);
-            this.chbLockChucVu.TabIndex = 4;            
+            this.chbLockChucVu.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.chbLockChucVu, "Click vào để khóa / mở khóa điều kiện tìm theo chức vụ");
             this.chbLockChucVu.UseVisualStyleBackColor = true;
             this.chbLockChucVu.CheckedChanged += new System.EventHandler(this.chbLockChucVu_CheckedChanged);
             // 
@@ -726,6 +729,7 @@
             this.chbLockDonVi.Name = "chbLockDonVi";
             this.chbLockDonVi.Size = new System.Drawing.Size(15, 14);
             this.chbLockDonVi.TabIndex = 5;
+            this.toolTip2.SetToolTip(this.chbLockDonVi, "Click vào để khóa / mở khóa điều kiện tìm theo đơn vị.");
             this.chbLockDonVi.UseVisualStyleBackColor = true;
             this.chbLockDonVi.CheckedChanged += new System.EventHandler(this.chbLockDonVi_CheckedChanged);
             // 
@@ -735,15 +739,14 @@
             this.tpaNgach.Location = new System.Drawing.Point(4, 22);
             this.tpaNgach.Name = "tpaNgach";
             this.tpaNgach.Padding = new System.Windows.Forms.Padding(3);
-            this.tpaNgach.Size = new System.Drawing.Size(757, 572);
+            this.tpaNgach.Size = new System.Drawing.Size(757, 304);
             this.tpaNgach.TabIndex = 1;
             this.tpaNgach.Text = "Ngạch";
             this.tpaNgach.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -757,9 +760,9 @@
             this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 481F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(754, 569);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 213F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(754, 301);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -850,6 +853,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tblLichSuNgach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblLichSuNgach.BackgroundColor = System.Drawing.Color.White;
             this.tblLichSuNgach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblLichSuNgach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmLichSuNgachId,
@@ -866,7 +870,7 @@
             this.tblLichSuNgach.Name = "tblLichSuNgach";
             this.tblLichSuNgach.ReadOnly = true;
             this.tblLichSuNgach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblLichSuNgach.Size = new System.Drawing.Size(754, 481);
+            this.tblLichSuNgach.Size = new System.Drawing.Size(754, 213);
             this.tblLichSuNgach.TabIndex = 1;
             this.tblLichSuNgach.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblLichSuNgach_CellFormatting);
             // 
@@ -930,16 +934,14 @@
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel4.AutoSize = true;
             this.flowLayoutPanel4.Controls.Add(this.btnLichSuNgachThem);
             this.flowLayoutPanel4.Controls.Add(this.btnLichSuNgachSua);
             this.flowLayoutPanel4.Controls.Add(this.btnXoaLichSuNgach);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 541);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 273);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(754, 30);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(240, 28);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
             // btnLichSuNgachThem
@@ -1023,6 +1025,8 @@
             this.chbLockNgach.Name = "chbLockNgach";
             this.chbLockNgach.Size = new System.Drawing.Size(15, 14);
             this.chbLockNgach.TabIndex = 4;
+            this.toolTip2.SetToolTip(this.chbLockNgach, "Click vào để khóa / mở khóa điều kiện tìm theo ngạch, khóa điều kiện này sẽ dẫn đ" +
+        "ến khóa điều kiện bậc.");
             this.chbLockNgach.UseVisualStyleBackColor = true;
             this.chbLockNgach.CheckedChanged += new System.EventHandler(this.chbLockNgach_CheckedChanged);
             // 
@@ -1056,6 +1060,7 @@
             this.chbLockBac.Name = "chbLockBac";
             this.chbLockBac.Size = new System.Drawing.Size(15, 14);
             this.chbLockBac.TabIndex = 5;
+            this.toolTip2.SetToolTip(this.chbLockBac, "Click vào để khóa / mở khóa điều kiện tìm theo bậc");
             this.chbLockBac.UseVisualStyleBackColor = true;
             this.chbLockBac.CheckedChanged += new System.EventHandler(this.chbLockBac_CheckedChanged);
             // 
@@ -1065,31 +1070,25 @@
             this.toolTip1.ShowAlways = true;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Thông tin";
-            this.toolTip1.SetToolTip(this.chbLockChucVu, "Click vào để khóa / mở khóa điều kiện tìm theo chức vụ");
             // 
             // toolTip2
             // 
             this.toolTip2.IsBalloon = true;
             this.toolTip2.ShowAlways = true;
-            this.toolTip2.ToolTipTitle = "Thông tin";
             this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.SetToolTip(this.chbLockDonVi, "Click vào để khóa / mở khóa điều kiện tìm theo đơn vị.");
+            this.toolTip2.ToolTipTitle = "Thông tin";
             // 
             // toolTip3
             // 
             this.toolTip3.IsBalloon = true;
             this.toolTip3.ShowAlways = true;
             this.toolTip3.ToolTipTitle = "Thông tin";
-            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.SetToolTip(this.chbLockNgach, "Click vào để khóa / mở khóa điều kiện tìm theo ngạch, khóa điều kiện này sẽ dẫn đến khóa điều kiện bậc.");
             // 
             // toolTip4
             // 
             this.toolTip4.IsBalloon = true;
             this.toolTip4.ShowAlways = true;
             this.toolTip4.ToolTipTitle = "Thông tin";
-            this.toolTip2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip2.SetToolTip(this.chbLockBac, "Click vào để khóa / mở khóa điều kiện tìm theo bậc");
             // 
             // Detail
             // 
@@ -1097,10 +1096,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.ClientSize = new System.Drawing.Size(1008, 375);
             this.Controls.Add(this.splitContainer1);
-            this.MaximumSize = new System.Drawing.Size(1024, 678);
-            this.MinimumSize = new System.Drawing.Size(1024, 678);
             this.Name = "Detail";
             this.Text = "Xem";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1124,6 +1121,7 @@
             this.flowLayoutPanel6.PerformLayout();
             this.tpaNgach.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLichSuNgach)).EndInit();
